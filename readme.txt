@@ -2,9 +2,73 @@ Gmail
 acr.git.temp@gmail.com
 acrgittemp
 
+
+
 Github
+==================================================================================================================================================
 Username: acr-git-temp
 Password acrgittemp1
+
+Quick setup — if you've done this kind of thing before
+https://github.com/acr-git-temp/acr.git
+git@github.com:acr-git-temp/acr.git
+
+
+We recommend every repository include a README, LICENSE, and .gitignore.
+…or create a new repository on the command line
+
+
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/acr-git-temp/acr.git
+git push -u origin master
+…or push an existing repository from the command line
+
+
+git remote add origin https://github.com/acr-git-temp/acr.git
+git push -u origin master
+…or import code from another repository
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+Import code
+
+
+
+
+Server
+==================================================================================================================================================
+Grant permissions
+--------------------------------------------------------------
+as admin run:
+netsh http add urlacl url=http://+:8000/. user=DELL\tomas
+
+
+
+Start VS2008 command line
+D:\Program Files\Microsoft Visual Studio 9.0\VC>
+
+Start wcfsvchost and wcftestclient
+wcfsvchost /service:E:\Source\WCFTest\WcfTest\bin\Debug\WcfTest.dll /config:E:\Source\WCFTest\WcfTest\bin\Debug\WcfTest.dll.config /client:WcfTestClient.exe
+
+REST server VS2008
+http://blogs.msdn.com/b/kaevans/archive/2008/04/03/creating-restful-services-using-wcf.aspx
+
+REST client Android
+http://spring.io/guides/gs/consuming-rest-android/
+
+RESTful
+http://msdn.microsoft.com/en-us/magazine/dd315413.aspx
+
+
+
+
+
+
+
+
 
 
 Error:duplicate files during packaging 	org.springframework.android\spring-android-core org.springframework.android\spring-android-rest-template
