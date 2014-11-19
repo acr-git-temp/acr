@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cash Register</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_plumaingroup_list">Hlavní skupiny PLU</string>
+    <string name="title_activity_plumaingroup_edit">Hlavní skupiny PLU - editace</string>
+    <string name="title_activity_plugroup_list">Skupiny PLU</string>
+    <string name="title_activity_plugroup_edit">Skupiny PLU - editace</string>
+    <string name="resolve_edit">Edit PLU Main Group</string>
+    <string name="deletedItemsVisible">Smazané položky jsou zobrazeny.</string>
+    <string name="deletedItemsHidden">Smazané položky jsou skryty.</string>
+    <string name="synchronizationComplete">Synchronizace dokončena.</string>
+</resources>
