@@ -168,6 +168,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void AddTestingData() {
         SQLiteDatabase db = getWritableDatabase();
+
+        db.execSQL("INSERT INTO " + TABLE_NAME_PLUMAINGROUP + "(_id, ID, TITLE, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
+                "VALUES (0, '7f8294e2-ed08-46b8-8273-fa0c06ed175d', 'Jidlo'   , '01.01.1900 00:00', '01.01.1900 00:00', 0)," +
+                "VALUES (1, '7f8294e2-ed08-46b8-8273-fa0c06ed175d', 'Napoje'  , '01.01.1900 00:00', '01.01.1900 00:00', 0)," +
+                "VALUES (2, '7f8294e2-ed08-46b8-8273-fa0c06ed175d', 'Cigarety', '01.01.1900 00:00', '01.01.1900 00:00', 0)");
     }
 
     public int Guid2Id(String guid, String tableName) {
