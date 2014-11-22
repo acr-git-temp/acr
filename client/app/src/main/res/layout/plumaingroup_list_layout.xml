@@ -10,19 +10,19 @@
         android:layout_weight="1"
         android:orientation="vertical" >
     
-         <TextView android:id="@+id/trackTitle"
+         <TextView android:id="@+id/textViewName"
              android:textAppearance="?android:attr/textAppearanceMedium"
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
-             android:text="Title"
+             android:text="Name"
              android:background="#ffb6ffc2" />
     
-         <TextView android:id="@+id/trackDescription"
+         <TextView android:id="@+id/textViewId"
              android:textAppearance="?android:attr/textAppearanceSmall"
              android:textColor="#808080"
              android:layout_width="fill_parent"
              android:layout_height="wrap_content"
-             android:text="Description"
+             android:text="Id"
              android:autoText="false" />
 
         <LinearLayout
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="1.1.1900 00:00:00"
-                android:id="@+id/textViewServerTime"
+                android:id="@+id/textViewServerTimestamp"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="1.1.1900 00:00:00"
-                android:id="@+id/textViewClientTime"
+                android:id="@+id/textViewClientTimestamp"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="0"
-                android:id="@+id/textViewId"
+                android:id="@+id/textView_id"
                 android:layout_weight="1" />
 
             <TextView

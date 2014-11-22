@@ -25,7 +25,7 @@ public class PLUGroupListActivity extends ListActivity {
     LocalUriContentObserver mObserver;
     Boolean mShowDeleted = true;
 
-    private static final String[] PROJECTION = new String[] { "NAME", "ID", "SERVERTIMESTAMP", "CLIENTTIMESTAMP", "_id", "DELETED", "PLUMAINGROUP_ID" };
+    private static final String[] PROJECTION = new String[] { "NAME", "ID", "PLUMAINGROUP_ID", "SERVERTIMESTAMP", "CLIENTTIMESTAMP", "_id", "DELETED" };
 
     class LocalUriContentObserver extends ContentObserver {
 
@@ -52,10 +52,9 @@ public class PLUGroupListActivity extends ListActivity {
 
         mObserver = new LocalUriContentObserver(new Handler());
         mCursor = getApplicationContext().getContentResolver().query(PluGroupProvider.CONTENT_ID_URI_LOCATION, PROJECTION, mShowDeleted ? null : "DELETED <> 1", null, null);
-        int x = mCursor.getCount();
 
         mAdapter = new  android.widget.SimpleCursorAdapter(this, R.layout.plugroup_list_layout, mCursor, PROJECTION,
-                new int[] {R.id.trackTitle, R.id.trackDescription, R.id.textViewServerTime, R.id.textViewClientTime, R.id.textViewId, R.id.textViewDeleted, R.id.textViewPluMainGroupId});
+                new int[] {R.id.textViewName, R.id.textViewId, R.id.textViewParentId, R.id.textViewServerTimestamp, R.id.textViewClientTimestamp, R.id.textView_id, R.id.textViewDeleted});
         setListAdapter(mAdapter);
 
         getApplicationContext().getContentResolver().registerContentObserver(PluGroupProvider.CONTENT_ID_URI_LOCATION, true, mObserver);
@@ -72,8 +71,6 @@ public class PLUGroupListActivity extends ListActivity {
 
         switch(item.getItemId()) {
             case R.id.menu_track_insert:
-                // Gets the action from the incoming Intent
-                String action = getIntent().getAction();
                 startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
                 break;
             case R.id.menu_track_delete:
@@ -96,25 +93,12 @@ public class PLUGroupListActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Uri uri = ContentUris.withAppendedId(getIntent().getData(), getListAdapter().getItemId(position));
 
-        // Gets the action from the incoming Intent
         String action = getIntent().getAction();
         if (Intent.ACTION_PICK.equals(action) || Intent.ACTION_GET_CONTENT.equals(action)) {
             setResult(RESULT_OK, new Intent().setData(uri));
         } else {
             startActivity(new Intent(Intent.ACTION_EDIT, uri));
         }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        getApplicationContext().getContentResolver().unregisterContentObserver(mObserver);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        getApplicationContext().getContentResolver().registerContentObserver(PluGroupProvider.CONTENT_ID_URI_LOCATION, true, mObserver);
     }
 
     private void reload() {
