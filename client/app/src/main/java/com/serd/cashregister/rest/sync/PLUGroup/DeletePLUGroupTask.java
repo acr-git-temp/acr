@@ -51,7 +51,7 @@ public class DeletePLUGroupTask extends ISynchronizerTask implements DeleteTempl
 
     DeletePLUGroupTask(Synchronizer pSynchronizer, PLUGroup pData, String pId ) {
         mSynchronizer = pSynchronizer;
-        mTaskObject = new DeleteTemplate<PLUGroup>(PLUGroup.class, TaskSettings.baseurl + "SKUPINY_PLU/", pData, pId);
+        mTaskObject = new DeleteTemplate<PLUGroup>(PLUGroup.class, TaskSettings.baseurl + "PluGroup/", pData, pId);
         mTaskObject.registerListener(this);
     }
 

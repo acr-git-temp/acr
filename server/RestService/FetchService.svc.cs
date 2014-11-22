@@ -26,21 +26,21 @@ namespace RestService
         DateTime GetHLAVNISKUPINY_PLUTimestamp(Guid id)
         {
             SERDEntities context = new SERDEntities();
-            HLAVNISKUPINY_PLU obj = context.HLAVNISKUPINY_PLU.Where(s => s.id == id).FirstOrDefault<HLAVNISKUPINY_PLU>();
+            plumaingroup obj = context.PluMainGroup.Where(s => s.id == id).FirstOrDefault<plumaingroup>();
             return obj.timestamp;
         }
 
-        public List<HLAVNISKUPINY_PLUx> GetHLAVNISKUPINY_PLU()
+        public List<DCPluMainGroup> GetHLAVNISKUPINY_PLU()
         {
-            Console.WriteLine(DateTime.Now.ToString() + " Get HLAVNISKUPINY_PLU");
+            Console.WriteLine(DateTime.Now.ToString() + " Get PluMainGroup");
 
             using (var context = new SERDEntities())
             {
-                var data = (from t in context.HLAVNISKUPINY_PLU
-                            select new HLAVNISKUPINY_PLUx
+                var data = (from t in context.PluMainGroup
+                            select new DCPluMainGroup
                             {
                                 id = t.id,
-                                nazev = t.nazev,
+                                name = t.name,
                                 timestamp = t.timestamp,
                                 deleted = t.deleted
                             }).ToList();
@@ -48,24 +48,24 @@ namespace RestService
             }
         }
 
-        public HLAVNISKUPINY_PLUx InsertHLAVNISKUPINY_PLU(HLAVNISKUPINY_PLUx src)
+        public DCPluMainGroup InsertHLAVNISKUPINY_PLU(DCPluMainGroup src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert HLAVNISKUPINY_PLU\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.nazev).ToString());
+            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
 
-            HLAVNISKUPINY_PLU obj;
+            plumaingroup obj;
             {
                 SERDEntities context = new SERDEntities();
 
-                obj = new HLAVNISKUPINY_PLU
+                obj = new plumaingroup
                 {
                     id = src.id,
-                    nazev = src.nazev,
+                    name = src.name,
                     timestamp = src.timestamp,
                     deleted = src.deleted
                 };
 
 #if (!DO_NOT_UPDATE_DATABASE) 
-                context.AddToHLAVNISKUPINY_PLU(obj);
+                context.AddToPluMainGroup(obj);
                 context.SaveChanges();
 #endif
             }
@@ -73,18 +73,18 @@ namespace RestService
             return src;
         }
 
-        public HLAVNISKUPINY_PLUx UpdateHLAVNISKUPINY_PLU(HLAVNISKUPINY_PLUx src)
+        public DCPluMainGroup UpdateHLAVNISKUPINY_PLU(DCPluMainGroup src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update HLAVNISKUPINY_PLU\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.nazev).ToString());
+            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
 
-            HLAVNISKUPINY_PLU obj;
+            plumaingroup obj;
             using (var context = new SERDEntities())
             {
-                obj = context.HLAVNISKUPINY_PLU.Where(s => s.id == src.id).FirstOrDefault<HLAVNISKUPINY_PLU>();
+                obj = context.PluMainGroup.Where(s => s.id == src.id).FirstOrDefault<plumaingroup>();
                 if (obj != null)
                 {
 #if (!DO_NOT_UPDATE_DATABASE)
-                    obj.nazev = src.nazev;
+                    obj.name = src.name;
                     obj.timestamp = src.timestamp;
                     obj.deleted = src.deleted;
                     context.SaveChanges();
@@ -92,16 +92,16 @@ namespace RestService
                 }
                 else
                 {
-                    obj = new HLAVNISKUPINY_PLU
+                    obj = new plumaingroup
                     {
                         id = src.id,
-                        nazev = src.nazev,
+                        name = src.name,
                         timestamp = src.timestamp,
                         deleted = src.deleted
                     };
 
 #if (!DO_NOT_UPDATE_DATABASE)
-                    context.AddToHLAVNISKUPINY_PLU(obj);
+                    context.AddToPluMainGroup(obj);
                     context.SaveChanges();
 #endif
                 }
@@ -110,18 +110,18 @@ namespace RestService
             return src;
         }
 
-        public HLAVNISKUPINY_PLUx DeleteHLAVNISKUPINY_PLU(string id)
+        public DCPluMainGroup DeleteHLAVNISKUPINY_PLU(string id)
         {
-            HLAVNISKUPINY_PLUx result = new HLAVNISKUPINY_PLUx();
-            
-            HLAVNISKUPINY_PLU obj;
+            DCPluMainGroup result = new DCPluMainGroup();
+
+            plumaingroup obj;
             using (var context = new SERDEntities())
             {
                 Guid idAsGuid = new Guid(id);
-                obj = context.HLAVNISKUPINY_PLU.Where(s => s.id == idAsGuid).FirstOrDefault<HLAVNISKUPINY_PLU>();
+                obj = context.PluMainGroup.Where(s => s.id == idAsGuid).FirstOrDefault<plumaingroup>();
                 if (obj != null)
                 {
-                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete HLAVNISKUPINY_PLU\n\t\t\tID: {0}\n\t\t\tTitle: {1}", obj.id.ToString(), obj.nazev).ToString());
+                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", obj.id.ToString(), obj.name).ToString());
 
 #if (!DO_NOT_UPDATE_DATABASE) 
                     context.DeleteObject(obj);
@@ -131,29 +131,29 @@ namespace RestService
             }
 
             result.id = obj != null ? obj.id : Guid.Empty;
-            result.nazev = obj != null ? obj.nazev : "";
+            result.name = obj != null ? obj.name : "";
             return result;
         }
 
         DateTime GetSKUPINY_PLUTimestamp(Guid id)
         {
             SERDEntities context = new SERDEntities();
-            SKUPINY_PLU obj = context.SKUPINY_PLU.Where(s => s.id == id).FirstOrDefault<SKUPINY_PLU>();
+            plugroup obj = context.PluGroup.Where(s => s.id == id).FirstOrDefault<plugroup>();
             return obj.timestamp;
         }
 
-        public List<SKUPINY_PLUx> GetSKUPINY_PLU()
+        public List<DCPluGroup> GetSKUPINY_PLU()
         {
-            Console.WriteLine(DateTime.Now.ToString() + " Get SKUPINY_PLU");
+            Console.WriteLine(DateTime.Now.ToString() + " Get PluGroup");
 
             using (var context = new SERDEntities())
             {
-                var data = (from t in context.SKUPINY_PLU
-                            select new SKUPINY_PLUx
+                var data = (from t in context.PluGroup
+                            select new DCPluGroup
                             {
                                 id = t.id,
-                                nazev = t.nazev,
-                                hlavniskupina_id = t.HLAVNISKUPINY_PLU.id,
+                                name = t.name,
+                                plumaingroup_id = t.plumaingroup.id,
                                 timestamp = t.timestamp,
                                 deleted = t.deleted
                             }).ToList();
@@ -161,25 +161,25 @@ namespace RestService
             }
         }
 
-        public SKUPINY_PLUx InsertSKUPINY_PLUx(SKUPINY_PLUx src)
+        public DCPluGroup InsertSKUPINY_PLUx(DCPluGroup src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert SKUPINY_PLU\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.nazev).ToString());
+            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
 
-            SKUPINY_PLU obj;
+            plugroup obj;
             {
                 SERDEntities context = new SERDEntities();
 
-                obj = new SKUPINY_PLU
+                obj = new plugroup
                 {
                     id = src.id,
-                    nazev = src.nazev,
+                    name = src.name,
                     timestamp = src.timestamp,
                     deleted = src.deleted
                 };
 
-                obj.HLAVNISKUPINY_PLUReference.EntityKey = new System.Data.EntityKey("SERDEntities.HLAVNISKUPINY_PLU", "id", src.hlavniskupina_id);
+                obj.plumaingroupReference.EntityKey = new System.Data.EntityKey("SERDEntities.PluMainGroup", "id", src.plumaingroup_id);
 #if (!DO_NOT_UPDATE_DATABASE)
-                context.AddToSKUPINY_PLU(obj);
+                context.AddToPluGroup(obj);
                 context.SaveChanges();
 #endif
             }
@@ -187,37 +187,37 @@ namespace RestService
             return src;
         }
 
-        public SKUPINY_PLUx UpdateSKUPINY_PLUx(SKUPINY_PLUx src)
+        public DCPluGroup UpdateSKUPINY_PLUx(DCPluGroup src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update SKUPINY_PLU\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.nazev).ToString());
+            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
 
-            SKUPINY_PLU obj;
+            plugroup obj;
             using (var context = new SERDEntities())
             {
-                obj = context.SKUPINY_PLU.Where(s => s.id == src.id).FirstOrDefault<SKUPINY_PLU>();
+                obj = context.PluGroup.Where(s => s.id == src.id).FirstOrDefault<plugroup>();
                 if (obj != null)
                 {
 #if (!DO_NOT_UPDATE_DATABASE)
-                    obj.nazev = src.nazev;
+                    obj.name = src.name;
                     obj.timestamp = src.timestamp;
                     obj.deleted = src.deleted;
-                    obj.HLAVNISKUPINY_PLUReference.EntityKey = new System.Data.EntityKey("SERDEntities.HLAVNISKUPINY_PLU", "id", src.hlavniskupina_id);
+                    obj.plumaingroupReference.EntityKey = new System.Data.EntityKey("SERDEntities.PluMainGroup", "id", src.plumaingroup_id);
                     context.SaveChanges();
 #endif
                 }
                 else
                 {
-                    obj = new SKUPINY_PLU
+                    obj = new plugroup
                     {
                         id = src.id,
-                        nazev = src.nazev,
+                        name = src.name,
                         timestamp = src.timestamp,
                         deleted = src.deleted
                     };
 
-                    obj.HLAVNISKUPINY_PLUReference.EntityKey = new System.Data.EntityKey("SERDEntities.HLAVNISKUPINY_PLU", "id", src.hlavniskupina_id);
+                    obj.plumaingroupReference.EntityKey = new System.Data.EntityKey("SERDEntities.PluMainGroup", "id", src.plumaingroup_id);
 #if (!DO_NOT_UPDATE_DATABASE)
-                    context.AddToSKUPINY_PLU(obj);
+                    context.AddToPluGroup(obj);
                     context.SaveChanges();
 #endif
                 }
@@ -227,18 +227,18 @@ namespace RestService
             return src;
         }
 
-        public SKUPINY_PLUx DeleteSKUPINY_PLUx(string id)
+        public DCPluGroup DeleteSKUPINY_PLUx(string id)
         {
-            SKUPINY_PLUx result = new SKUPINY_PLUx();
+            DCPluGroup result = new DCPluGroup();
 
-            SKUPINY_PLU obj;
+            plugroup obj;
             using (var context = new SERDEntities())
             {
                 Guid idAsGuid = new Guid(id);
-                obj = context.SKUPINY_PLU.Where(s => s.id == idAsGuid).FirstOrDefault<SKUPINY_PLU>();
+                obj = context.PluGroup.Where(s => s.id == idAsGuid).FirstOrDefault<plugroup>();
                 if (obj != null)
                 {
-                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete SKUPINY_PLU\n\t\t\tID: {0}\n\t\t\tTitle: {1}", obj.id.ToString(), obj.nazev).ToString());
+                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", obj.id.ToString(), obj.name).ToString());
 
 #if (!DO_NOT_UPDATE_DATABASE)
                     context.DeleteObject(obj);
@@ -248,68 +248,68 @@ namespace RestService
             }
 
             result.id = obj != null ? obj.id : Guid.Empty;
-            result.nazev = obj != null ? obj.nazev : "";
+            result.name = obj != null ? obj.name : "";
             return result;
         }
 
         DateTime GetPLUTimestamp(Guid id)
         {
             SERDEntities context = new SERDEntities();
-            PLU obj = context.PLU.Where(s => s.id == id).FirstOrDefault<PLU>();
+            plu obj = context.Plu.Where(s => s.id == id).FirstOrDefault<plu>();
             return obj.timestamp;
         }
 
-        public List<PLUx> GetPLUs()
+        public List<DCPlu> GetPLUs()
         {
-            Console.WriteLine(DateTime.Now.ToString() + " Get PLU");
+            Console.WriteLine(DateTime.Now.ToString() + " Get Plu");
 
             using (var context = new SERDEntities())
             {
-                var data = (from t in context.PLU
-                            select new PLUx
+                var data = (from t in context.Plu
+                            select new DCPlu
                             {
-                                id = t.id, ean = t.ean, nazev1 = t.nazev1, nazev2 = t.nazev2, nazev3 = t.nazev3,
-                                cena1 = t.cena1, cena2 = t.cena2, cena3 = t.cena3, 
-                                skupina_id = t.SKUPINY_PLU.id, dph_id = t.dph_id, zs_id = t.zs_id, text = t.text,
-                                status1 = t.status1, status2 = t.status2, halo_lalo = t.halo_lalo,
-                                link_plu1_id = t.link_plu1_id, link_plu1_pocet = t.link_plu1_pocet,
-                                link_plu2_id = t.link_plu2_id, link_plu2_pocet = t.link_plu2_pocet,
-                                koeficient = t.koeficient, objedvanka_typ = t.objednavka_typ,
-                                menu_vol = t.menu_vol, menu_pat = t.menu_pat, stastna_hodina = t.stastna_hodina,
-                                piktogram_id = t.piktogram_id, stav = t.stav, blokace = t.blokace,
-                                zdroj_id = t.zdroj_id, zdroj_cislo = t.zdroj_cislo, zdroj_sklad = t.zdroj_sklad,
+                                id = t.id, ean = t.ean, name1 = t.name1, name2 = t.name2, name3 = t.name3,
+                                price1 = t.price1, price2 = t.price2, price3 = t.price3, 
+                                plugroup_id = t.plugroup.id, vat_id = t.vat_id, department_id = t.department_id, text = t.text,
+                                status1 = t.status1, status2 = t.status2, halolalo = t.halolalo,
+                                linkplu1_id = t.linkplu1_id, linkplu1quantity = t.linkplu1quantity,
+                                linkplu2_id = t.linkplu2_id, linkplu2quantity = t.linkplu2quantity,
+                                coefficient = t.coefficient, ordertype = t.ordertype,
+                                menuvol = t.menuvol, menupat = t.menupat, happyhour = t.happyhour,
+                                pictogram_id = t.pictogram_id, state = t.state, blocked = t.blocked,
+                                source_id = t.source_id, sourcenumstock = t.sourcenumstock, sourcestock = t.sourcestock,
                                 timestamp = t.timestamp, deleted = t.deleted
                             }).ToList();
                 return data;
             }
         }
 
-        public PLUx InsertPLUx(PLUx src)
+        public DCPlu InsertPLUx(DCPlu src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert PLU\n\tID: {0}\n\tTitle: {1}", src.id.ToString(), src.nazev1).ToString());
+            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert Plu\n\tID: {0}\n\tTitle: {1}", src.id.ToString(), src.name1).ToString());
             
-            PLU obj;
+            plu obj;
             {
                 SERDEntities context = new SERDEntities();
 
-                obj = new PLU
+                obj = new plu
                 {
                     id = src.id,
                     ean = src.ean,
-                    nazev1 = src.nazev1, nazev2 = src.nazev2, nazev3 = src.nazev3,
-                    cena1 = src.cena1, cena2 = src.cena2, cena3 = src.cena3, dph_id = src.dph_id, 
-                    zs_id = src.zs_id, text = src.text, status1 = src.status1, status2 = src.status2, halo_lalo = src.halo_lalo, 
-                    link_plu1_id = src.link_plu1_id, link_plu1_pocet = src.link_plu1_pocet, 
-                    link_plu2_id = src.link_plu2_id, link_plu2_pocet = src.link_plu2_pocet,
-                    koeficient = src.koeficient, objednavka_typ = src.objedvanka_typ, menu_vol = src.menu_vol, menu_pat = src.menu_pat,
-                    stastna_hodina = src.stastna_hodina, piktogram_id = src.piktogram_id, stav = src.stav, blokace = src.blokace,
-                    zdroj_id = src.zdroj_id, zdroj_cislo = src.zdroj_cislo, zdroj_sklad = src.zdroj_sklad,
+                    name1 = src.name1, name2 = src.name2, name3 = src.name3,
+                    price1 = src.price1, price2 = src.price2, price3 = src.price3, vat_id = src.vat_id, 
+                    department_id = src.department_id, text = src.text, status1 = src.status1, status2 = src.status2, halolalo = src.halolalo, 
+                    linkplu1_id = src.linkplu1_id, linkplu1quantity = src.linkplu1quantity, 
+                    linkplu2_id = src.linkplu2_id, linkplu2quantity = src.linkplu2quantity,
+                    coefficient = src.coefficient, ordertype = src.ordertype, menuvol = src.menuvol, menupat = src.menupat,
+                    happyhour = src.happyhour, pictogram_id = src.pictogram_id, state = src.state, blocked = src.blocked,
+                    source_id = src.source_id, sourcenumstock = src.sourcenumstock, sourcestock = src.sourcestock,
                     timestamp = src.timestamp, deleted = src.deleted
                 };
 
-                obj.SKUPINY_PLUReference.EntityKey = new System.Data.EntityKey("SERDEntities.SKUPINY_PLU", "id", src.skupina_id);
+                obj.plugroupReference.EntityKey = new System.Data.EntityKey("SERDEntities.PluGroup", "id", src.plugroup_id);
 #if (!DO_NOT_UPDATE_DATABASE) 
-                context.AddToPLU(obj);
+                context.AddToPlu(obj);
                 context.SaveChanges();
 #endif
             }
@@ -317,27 +317,27 @@ namespace RestService
             return src;
         }
 
-        public PLUx UpdatePLUx(PLUx src)
+        public DCPlu UpdatePLUx(DCPlu src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update PLU\n\tID: {0}\n\tTitle: {1}", src.id.ToString(), src.nazev1).ToString());
+            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update Plu\n\tID: {0}\n\tTitle: {1}", src.id.ToString(), src.name1).ToString());
 
-            PLU obj;
+            plu obj;
             using (var context = new SERDEntities())
             {
-                obj = context.PLU.Where(s => s.id == src.id).FirstOrDefault<PLU>();
+                obj = context.Plu.Where(s => s.id == src.id).FirstOrDefault<plu>();
                 if (obj != null)
                 {
 #if (!DO_NOT_UPDATE_DATABASE) 
                     obj.ean = src.ean;
-                    obj.nazev1 = src.nazev1; obj.nazev2 = src.nazev2; obj.nazev3 = src.nazev3;
-                    obj.cena1 = src.cena1; obj.cena2 = src.cena2; obj.cena3 = src.cena3; obj.dph_id = src.dph_id; 
-                    obj.zs_id = src.zs_id; obj.text = src.text; obj.status1 = src.status1; obj.status2 = src.status2; obj.halo_lalo = src.halo_lalo; 
-                    obj.link_plu1_id = src.link_plu1_id; obj.link_plu1_pocet = src.link_plu1_pocet; 
-                    obj.link_plu2_id = src.link_plu2_id; obj.link_plu2_pocet = src.link_plu2_pocet;
-                    obj.koeficient = src.koeficient; obj.objednavka_typ = src.objedvanka_typ; obj.menu_vol = src.menu_vol; obj.menu_pat = src.menu_pat;
-                    obj.stastna_hodina = src.stastna_hodina; obj.piktogram_id = src.piktogram_id; obj.stav = src.stav; obj.blokace = src.blokace;
-                    obj.zdroj_id = src.zdroj_id; obj.zdroj_cislo = src.zdroj_cislo; obj.zdroj_sklad = src.zdroj_sklad;
-                    obj.SKUPINY_PLUReference.EntityKey = new System.Data.EntityKey("SERDEntities.SKUPINY_PLU", "id", src.skupina_id);
+                    obj.name1 = src.name1; obj.name2 = src.name2; obj.name3 = src.name3;
+                    obj.price1 = src.price1; obj.price2 = src.price2; obj.price3 = src.price3; obj.vat_id = src.vat_id; 
+                    obj.department_id = src.department_id; obj.text = src.text; obj.status1 = src.status1; obj.status2 = src.status2; obj.halolalo = src.halolalo;
+                    obj.linkplu1_id = src.linkplu1_id; obj.linkplu1quantity = src.linkplu1quantity;
+                    obj.linkplu2_id = src.linkplu2_id; obj.linkplu2quantity = src.linkplu2quantity;
+                    obj.coefficient = src.coefficient; obj.ordertype = src.ordertype; obj.menuvol = src.menuvol; obj.menupat = src.menupat;
+                    obj.happyhour = src.happyhour; obj.pictogram_id = src.pictogram_id; obj.state = src.state; obj.blocked = src.blocked;
+                    obj.source_id = src.source_id; obj.sourcenumstock = src.sourcenumstock; obj.sourcestock = src.sourcestock;
+                    obj.plugroupReference.EntityKey = new System.Data.EntityKey("SERDEntities.PluGroup", "id", src.plugroup_id);
                     context.SaveChanges();
 #endif
                 }
@@ -346,18 +346,18 @@ namespace RestService
             return src;
         }
 
-        public PLUx DeletePLUx(string id)
+        public DCPlu DeletePLUx(string id)
         {
-            PLUx result = new PLUx();
+            DCPlu result = new DCPlu();
 
-            PLU obj;
+            plu obj;
             using (var context = new SERDEntities())
             {
                 Guid idAsGuid = new Guid(id);
-                obj = context.PLU.Where(s => s.id == idAsGuid).FirstOrDefault<PLU>();
+                obj = context.Plu.Where(s => s.id == idAsGuid).FirstOrDefault<plu>();
                 if (obj != null)
                 {
-                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete PLU\n\tID: {0}\n\tTitle: {1}", obj.id.ToString(), obj.nazev1).ToString());
+                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete Plu\n\tID: {0}\n\tTitle: {1}", obj.id.ToString(), obj.name1).ToString());
 
 #if (!DO_NOT_UPDATE_DATABASE)
                     context.DeleteObject(obj);
@@ -367,7 +367,7 @@ namespace RestService
             }
 
             result.id = obj != null ? obj.id : Guid.Empty;
-            result.nazev1 = obj != null ? obj.nazev1 : "";
+            result.name1 = obj != null ? obj.name1 : "";
             return result;
         }
 

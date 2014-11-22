@@ -16,24 +16,24 @@ import org.simpleframework.xml.Root;
 </HLAVNISKUPINY_PLUx>
 */
 //@Root
-@Root(name="SKUPINY_PLUx", strict = false)
+@Root(name="PluGroup", strict = false)
 @NamespaceList
 public class PLUGroup {
 
-    public PLUGroup(@Element (name = "id") String pId, @Element (name = "hlavniskupina_id") String pMainGroupId, @Element (name = "nazev") String pNazev, @Element (name = "timestamp") String pTimestamp, @Element (name = "deleted") String pDeleted) {
+    public PLUGroup(@Element (name = "id") String pId, @Element (name = "plumaingroup_id") String pMainGroupId, @Element (name = "name") String pName, @Element (name = "timestamp") String pTimestamp, @Element (name = "deleted") String pDeleted) {
         id = pId;
-        nazev = pNazev;
+        name = pName;
         timestamp = pTimestamp;
         deleted = pDeleted;
-        hlavniskupina_id = pMainGroupId;
+        plumaingroup_id = pMainGroupId;
     }
 
     @Element(required = true, name = "id")
     private String id;
-    @Element(required = true, name = "nazev")
-    private String nazev;
-    @Element(required = true, name = "hlavniskupina_id")
-    private String hlavniskupina_id;
+    @Element(required = true, name = "name")
+    private String name;
+    @Element(required = true, name = "plumaingroup_id")
+    private String plumaingroup_id;
     @Element(required = true, name = "timestamp")
     private String timestamp;
     @Element(required = true, name = "deleted")
@@ -44,11 +44,11 @@ public class PLUGroup {
     }
 
     public String getPLUMainGroupId() {
-        return this.hlavniskupina_id;
+        return this.plumaingroup_id;
     }
 
     public String getContent() {
-        return this.nazev;
+        return this.name;
     }
 
     public String getTimestamp() {

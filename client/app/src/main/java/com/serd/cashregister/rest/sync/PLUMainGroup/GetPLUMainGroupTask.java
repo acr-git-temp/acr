@@ -29,7 +29,7 @@ public class GetPLUMainGroupTask extends ISynchronizerTask implements GetTemplat
 
     GetPLUMainGroupTask(Synchronizer pSynchronizer) {
         mSynchronizer = pSynchronizer;
-        mTaskObject = new GetTemplate<PLUMainGroups>(PLUMainGroups.class, TaskSettings.baseurl + "HLAVNISKUPINY_PLU/");
+        mTaskObject = new GetTemplate<PLUMainGroups>(PLUMainGroups.class, TaskSettings.baseurl + "PluMainGroup/");
         mTaskObject.registerListener(this);
     }
 
@@ -47,7 +47,7 @@ public class GetPLUMainGroupTask extends ISynchronizerTask implements GetTemplat
             if (id < 0) {
                 //item does not exist yet
                 values.put("ID", pluMainGroup.getId());
-                values.put("TITLE", pluMainGroup.getContent());
+                values.put("NAME", pluMainGroup.getContent());
                 values.put("SERVERTIMESTAMP", pluMainGroup.getTimestamp().replace('T', ' '));
                 values.put("CLIENTTIMESTAMP", pluMainGroup.getTimestamp().replace('T', ' '));
                 values.put("DELETED", 0);
@@ -55,7 +55,7 @@ public class GetPLUMainGroupTask extends ISynchronizerTask implements GetTemplat
             }
             else {
                 //item already exists
-                values.put("TITLE", pluMainGroup.getContent());
+                values.put("NAME", pluMainGroup.getContent());
                 values.put("SERVERTIMESTAMP", pluMainGroup.getTimestamp().replace('T', ' '));
                 values.put("CLIENTTIMESTAMP", pluMainGroup.getTimestamp().replace('T', ' '));
                 values.put("DELETED", pluMainGroup.getDeleted()?1:0);

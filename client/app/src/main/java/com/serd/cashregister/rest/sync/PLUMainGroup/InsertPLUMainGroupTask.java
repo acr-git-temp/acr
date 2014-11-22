@@ -51,7 +51,7 @@ public class InsertPLUMainGroupTask extends ISynchronizerTask implements InsertT
 
     InsertPLUMainGroupTask(Synchronizer pSynchronizer, PLUMainGroup pData ) {
         mSynchronizer = pSynchronizer;
-        mTaskObject = new InsertTemplate<PLUMainGroup>(PLUMainGroup.class, TaskSettings.baseurl + "HLAVNISKUPINY_PLU/", pData);
+        mTaskObject = new InsertTemplate<PLUMainGroup>(PLUMainGroup.class, TaskSettings.baseurl + "PluMainGroup/", pData);
         mTaskObject.registerListener(this);
     }
 

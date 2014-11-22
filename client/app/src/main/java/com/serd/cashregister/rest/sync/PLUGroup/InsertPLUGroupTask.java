@@ -51,7 +51,7 @@ public class InsertPLUGroupTask extends ISynchronizerTask implements InsertTempl
 
     InsertPLUGroupTask(Synchronizer pSynchronizer, PLUGroup pData ) {
         mSynchronizer = pSynchronizer;
-        mTaskObject = new InsertTemplate<PLUGroup>(PLUGroup.class, TaskSettings.baseurl + "SKUPINY_PLU/", pData);
+        mTaskObject = new InsertTemplate<PLUGroup>(PLUGroup.class, TaskSettings.baseurl + "PluGroup/", pData);
         mTaskObject.registerListener(this);
     }
 

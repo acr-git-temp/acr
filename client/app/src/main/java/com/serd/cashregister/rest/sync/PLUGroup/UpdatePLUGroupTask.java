@@ -51,7 +51,7 @@ public class UpdatePLUGroupTask extends ISynchronizerTask implements UpdateTempl
 
     UpdatePLUGroupTask(Synchronizer pSynchronizer, PLUGroup pData ) {
         mSynchronizer = pSynchronizer;
-        mTaskObject = new UpdateTemplate<PLUGroup>(PLUGroup.class, TaskSettings.baseurl + "SKUPINY_PLU/", pData);
+        mTaskObject = new UpdateTemplate<PLUGroup>(PLUGroup.class, TaskSettings.baseurl + "PluGroup/", pData);
         mTaskObject.registerListener(this);
     }
 

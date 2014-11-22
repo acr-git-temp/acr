@@ -25,7 +25,7 @@ public class PLUMainGroupListActivity extends ListActivity {
     LocalUriContentObserver mObserver;
     Boolean mShowDeleted = true;
 
-    private static final String[] PROJECTION = new String[] { "TITLE", "ID", "SERVERTIMESTAMP", "CLIENTTIMESTAMP", "_id", "DELETED" };
+    private static final String[] PROJECTION = new String[] { "NAME", "ID", "SERVERTIMESTAMP", "CLIENTTIMESTAMP", "_id", "DELETED" };
 
     class LocalUriContentObserver extends ContentObserver {
 

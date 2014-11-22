@@ -8,9 +8,9 @@ import java.util.List;
 /**
  * Created by Tomas on 12. 11. 2014.
  */
-@Root(name="ArrayOfHLAVNISKUPINY_PLUx", strict=false)
+@Root(name="ArrayOfPluMainGroup", strict=false)
 public class PLUMainGroups {
-    @ElementList(required = false, inline=true, entry="HLAVNISKUPINY_PLUx")
+    @ElementList(required = false, inline=true, entry="PluMainGroup")
     public List<PLUMainGroup> item;
 
 }

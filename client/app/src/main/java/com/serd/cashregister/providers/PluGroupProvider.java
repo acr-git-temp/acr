@@ -291,7 +291,7 @@ public class PluGroupProvider extends ContentProvider {
         sPluGroupProjectionMap.put("_id", "_id");
         sPluGroupProjectionMap.put("ID", "ID");
         sPluGroupProjectionMap.put("PLUMAINGROUP_ID", "PLUMAINGROUP_ID");
-        sPluGroupProjectionMap.put("TITLE", "TITLE");
+        sPluGroupProjectionMap.put("NAME", "NAME");
         sPluGroupProjectionMap.put("SERVERTIMESTAMP", "SERVERTIMESTAMP");
         sPluGroupProjectionMap.put("CLIENTTIMESTAMP", "CLIENTTIMESTAMP");
         sPluGroupProjectionMap.put("DELETED", "DELETED");

@@ -27,7 +27,7 @@ public class PLUGroupEditActivity extends ActionBarActivity {
     private static final int STATE_EDIT = 0;
     private static final int STATE_INSERT = 1;
 
-    private static final String[] PROJECTION = new String[] { ".id", "ID", "TITLE", "PLUMAINGROUP_ID", "DELETED" };
+    private static final String[] PROJECTION = new String[] { ".id", "ID", "NAME", "PLUMAINGROUP_ID", "DELETED" };
 
 
     @Override
@@ -47,10 +47,10 @@ public class PLUGroupEditActivity extends ActionBarActivity {
             mUri = intent.getData();
             mCursor = getContentResolver().query(mUri,null ,null, null, null);
             mCursor.moveToFirst();
-            title.setText(mCursor.getString(6));
-            mainGroup.setText(mCursor.getString(3));
+            title.setText(mCursor.getString(1));
+            mainGroup.setText(mCursor.getString(4));
             checkBoxDeleted.setVisibility(View.VISIBLE);
-            checkBoxDeleted.setChecked(mCursor.getInt(2) == 1);
+            checkBoxDeleted.setChecked(mCursor.getInt(3) == 1);
         } else if (Intent.ACTION_INSERT.equals(action)) {
             checkBoxDeleted.setVisibility(View.INVISIBLE);
             checkBoxDeleted.setChecked(false);
@@ -60,10 +60,9 @@ public class PLUGroupEditActivity extends ActionBarActivity {
 
     }
 
-
     public void okButtonClicked(View theButton){
         ContentValues values = new ContentValues();
-        values.put("TITLE", title.getText().toString());
+        values.put("NAME", title.getText().toString());
         values.put("PLUMAINGROUP_ID", mainGroup.getText().toString());
         values.put("DELETED", checkBoxDeleted.isChecked()?1:0);
 

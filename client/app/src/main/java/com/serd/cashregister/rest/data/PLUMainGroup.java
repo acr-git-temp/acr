@@ -16,21 +16,21 @@ import org.simpleframework.xml.Root;
 </HLAVNISKUPINY_PLUx>
 */
 //@Root
-@Root(name="HLAVNISKUPINY_PLUx", strict = false)
+@Root(name="PluMainGroup", strict = false)
 @NamespaceList
 public class PLUMainGroup {
 
-    public PLUMainGroup(@Element (name = "id") String pId, @Element (name = "nazev") String pNazev, @Element (name = "timestamp") String pTimestamp, @Element (name = "deleted") String pDeleted) {
+    public PLUMainGroup(@Element (name = "id") String pId, @Element (name = "name") String pNazev, @Element (name = "timestamp") String pTimestamp, @Element (name = "deleted") String pDeleted) {
         id = pId;
-        nazev = pNazev;
+        name = pNazev;
         timestamp = pTimestamp;
         deleted = pDeleted;
     }
 
     @Element(required = true, name = "id")
     private String id;
-    @Element(required = true, name = "nazev")
-    private String nazev;
+    @Element(required = true, name = "name")
+    private String name;
     @Element(required = true, name = "timestamp")
     private String timestamp;
     @Element(required = true, name = "deleted")
@@ -41,7 +41,7 @@ public class PLUMainGroup {
     }
 
     public String getContent() {
-        return this.nazev;
+        return this.name;
     }
 
     public String getTimestamp() {

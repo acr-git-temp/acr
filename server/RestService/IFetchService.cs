@@ -17,143 +17,143 @@ namespace RestService
             UriTemplate = "DEBUG/")]
         String Debug(String s);
         
-        // HLAVNISKUPINY_PLU
+        // plumaingroup
         //-------------------------------------------------------------------------------------------------
         [OperationContract]
-        [WebGet(UriTemplate = "HLAVNISKUPINY_PLU/")]
-        List<HLAVNISKUPINY_PLUx> GetHLAVNISKUPINY_PLU();
+        [WebGet(UriTemplate = "plumaingroup/")]
+        List<DCPluMainGroup> GetHLAVNISKUPINY_PLU();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "HLAVNISKUPINY_PLU/")]
-        HLAVNISKUPINY_PLUx InsertHLAVNISKUPINY_PLU(HLAVNISKUPINY_PLUx plu);
+            UriTemplate = "plumaingroup/")]
+        DCPluMainGroup InsertHLAVNISKUPINY_PLU(DCPluMainGroup plu);
         
         [OperationContract]
         [WebInvoke(Method = "PUT",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "HLAVNISKUPINY_PLU/")]
-        HLAVNISKUPINY_PLUx UpdateHLAVNISKUPINY_PLU(HLAVNISKUPINY_PLUx plu);
+            UriTemplate = "plumaingroup/")]
+        DCPluMainGroup UpdateHLAVNISKUPINY_PLU(DCPluMainGroup plu);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "HLAVNISKUPINY_PLU/{id}")]
-        HLAVNISKUPINY_PLUx DeleteHLAVNISKUPINY_PLU(string id);
+            UriTemplate = "plumaingroup/{id}")]
+        DCPluMainGroup DeleteHLAVNISKUPINY_PLU(string id);
 
         // SKUPINY_PLU
         //-------------------------------------------------------------------------------------------------
         [OperationContract]
-        [WebGet(UriTemplate = "SKUPINY_PLU/")]
-        List<SKUPINY_PLUx> GetSKUPINY_PLU();
+        [WebGet(UriTemplate = "plugroup/")]
+        List<DCPluGroup> GetSKUPINY_PLU();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "SKUPINY_PLU/")]
-        SKUPINY_PLUx InsertSKUPINY_PLUx(SKUPINY_PLUx plu);
+            UriTemplate = "plugroup/")]
+        DCPluGroup InsertSKUPINY_PLUx(DCPluGroup plu);
 
         [OperationContract]
         [WebInvoke(Method = "PUT",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "SKUPINY_PLU/")]
-        SKUPINY_PLUx UpdateSKUPINY_PLUx(SKUPINY_PLUx plu);
+            UriTemplate = "plugroup/")]
+        DCPluGroup UpdateSKUPINY_PLUx(DCPluGroup plu);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "SKUPINY_PLU/{id}")]
-        SKUPINY_PLUx DeleteSKUPINY_PLUx(string id);
+            UriTemplate = "plugroup/{id}")]
+        DCPluGroup DeleteSKUPINY_PLUx(string id);
 
         // PLU
         //-------------------------------------------------------------------------------------------------
         [OperationContract]
-        [WebGet(UriTemplate = "PLU/")]
-        List<PLUx> GetPLUs();
+        [WebGet(UriTemplate = "plu/")]
+        List<DCPlu> GetPLUs();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "PLU/")]
-        PLUx InsertPLUx(PLUx plu);
+            UriTemplate = "plu/")]
+        DCPlu InsertPLUx(DCPlu plu);
 
         [OperationContract]
         [WebInvoke(Method = "PUT",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "PLU/")]
-        PLUx UpdatePLUx(PLUx plu);
+            UriTemplate = "plu/")]
+        DCPlu UpdatePLUx(DCPlu plu);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
-            UriTemplate = "PLU/{id}")]
+            UriTemplate = "plu/{id}")]
 
-        PLUx DeletePLUx(string id);
+        DCPlu DeletePLUx(string id);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract(Namespace = "")]
-    public class HLAVNISKUPINY_PLUx
+    [DataContract(Namespace = "", Name = "PluMainGroup")]
+    public class DCPluMainGroup
     {
         [DataMember]
         public Guid id { get; set; }
         [DataMember]
-        public string nazev { get; set; }
+        public string name { get; set; }
         [DataMember(IsRequired=false)]
         public DateTime timestamp { get; set; }
         [DataMember(IsRequired = false)]
         public Boolean deleted { get; set; }
     }
 
-     [DataContract(Namespace = "")]
-    public class SKUPINY_PLUx
+    [DataContract(Namespace = "", Name = "PluGroup")]
+    public class DCPluGroup
     {
         [DataMember]
         public Guid id { get; set; }
         [DataMember]
-        public string nazev { get; set; }
+        public string name { get; set; }
         [DataMember]
-        public Guid hlavniskupina_id { get; set; }
+        public Guid plumaingroup_id { get; set; }
         [DataMember]
         public DateTime timestamp { get; set; }
         [DataMember(IsRequired = false)]
         public Boolean deleted { get; set; }
     }
 
-     [DataContract(Namespace = "")]
-    public class PLUx
+     [DataContract(Namespace = "", Name = "Plu")]
+    public class DCPlu
     {
         [DataMember]
         public Guid id { get; set; }
         [DataMember]
         public int ean { get; set; }
         [DataMember]
-        public string nazev1 { get; set; }
+        public string name1 { get; set; }
         [DataMember]
-        public string nazev2 { get; set; }
+        public string name2 { get; set; }
         [DataMember]
-        public string nazev3 { get; set; }
+        public string name3 { get; set; }
         [DataMember]
-        public decimal cena1 { get; set; }
+        public decimal price1 { get; set; }
         [DataMember]
-        public decimal? cena2 { get; set; }
+        public decimal? price2 { get; set; }
         [DataMember]
-        public decimal? cena3 { get; set; }
+        public decimal? price3 { get; set; }
         [DataMember]
-        public Guid skupina_id { get; set; }
+        public Guid plugroup_id { get; set; }
         [DataMember]
-        public Guid? dph_id { get; set; }
+        public Guid? vat_id { get; set; }
         [DataMember]
-        public Guid? zs_id { get; set; }
+        public Guid? department_id { get; set; }
         [DataMember]
         public string text { get; set; }
         [DataMember]
@@ -161,37 +161,37 @@ namespace RestService
         [DataMember]
         public short? status2 { get; set; }
         [DataMember]
-        public int? halo_lalo { get; set; }
+        public int? halolalo { get; set; }
         [DataMember]
-        public Guid? link_plu1_id { get; set; }
+        public Guid? linkplu1_id { get; set; }
         [DataMember]
-        public int? link_plu1_pocet { get; set; }
+        public int? linkplu1quantity { get; set; }
         [DataMember]
-        public Guid? link_plu2_id { get; set; }
+        public Guid? linkplu2_id { get; set; }
         [DataMember]
-        public int? link_plu2_pocet { get; set; }
+        public int? linkplu2quantity { get; set; }
         [DataMember]
-        public decimal? koeficient { get; set; }
+        public decimal? coefficient { get; set; }
         [DataMember]
-        public int? objedvanka_typ { get; set; }
+        public int? ordertype { get; set; }
         [DataMember]
-        public short? menu_vol { get; set; }
+        public short? menuvol { get; set; }
         [DataMember]
-        public short? menu_pat { get; set; }
+        public short? menupat { get; set; }
         [DataMember]
-        public int? stastna_hodina { get; set; }
+        public int? happyhour { get; set; }
         [DataMember]
-        public Guid? piktogram_id { get; set; }
+        public Guid? pictogram_id { get; set; }
         [DataMember]
-        public int? stav { get; set; }
+        public int? state { get; set; }
         [DataMember]
-        public int? blokace { get; set; }
+        public int? blocked { get; set; }
         [DataMember]
-        public Guid? zdroj_id { get; set; }
+        public Guid? source_id { get; set; }
         [DataMember]
-        public int? zdroj_cislo { get; set; }
+        public int? sourcenumstock { get; set; }
         [DataMember]
-        public int? zdroj_sklad { get; set; }
+        public int? sourcestock { get; set; }
         [DataMember]
         public DateTime timestamp { get; set; }
         [DataMember(IsRequired = false)]

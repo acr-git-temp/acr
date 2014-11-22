@@ -52,7 +52,7 @@ public class DeletePLUMainGroupTask extends ISynchronizerTask implements DeleteT
 
     DeletePLUMainGroupTask(Synchronizer pSynchronizer, PLUMainGroup pData, String pId ) {
         mSynchronizer = pSynchronizer;
-        mTaskObject = new DeleteTemplate<PLUMainGroup>(PLUMainGroup.class, TaskSettings.baseurl + "HLAVNISKUPINY_PLU/", pData, pId);
+        mTaskObject = new DeleteTemplate<PLUMainGroup>(PLUMainGroup.class, TaskSettings.baseurl + "PluMainGroup/", pData, pId);
         mTaskObject.registerListener(this);
     }
 

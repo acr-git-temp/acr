@@ -9,11 +9,11 @@
 //------------------------------------------------------------------------------
 
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("SERDModel", "FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "HLAVNISKUPINY_PLU", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(RestService.HLAVNISKUPINY_PLU), "SKUPINY_PLU", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(RestService.SKUPINY_PLU))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("SERDModel", "FK_PLU_SKUPINY_PLU", "SKUPINY_PLU", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(RestService.SKUPINY_PLU), "PLU", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(RestService.PLU))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("SERDModel", "FK_PLU_SKUPINY_PLU", "plugroup", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(RestService.plugroup), "plu", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(RestService.plu))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("SERDModel", "FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plumaingroup", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(RestService.plumaingroup), "plugroup", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(RestService.plugroup))]
 
 // Original file name:
-// Generation date: 17. 11. 2014 20:53:03
+// Generation date: 21. 11. 2014 18:20:53
 namespace RestService
 {
     
@@ -48,269 +48,112 @@ namespace RestService
         }
         partial void OnContextCreated();
         /// <summary>
-        /// There are no comments for HLAVNISKUPINY_PLU in the schema.
+        /// There are no comments for Plu in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Data.Objects.ObjectQuery<HLAVNISKUPINY_PLU> HLAVNISKUPINY_PLU
+        public global::System.Data.Objects.ObjectQuery<plu> Plu
         {
             get
             {
-                if ((this._HLAVNISKUPINY_PLU == null))
+                if ((this._Plu == null))
                 {
-                    this._HLAVNISKUPINY_PLU = base.CreateQuery<HLAVNISKUPINY_PLU>("[HLAVNISKUPINY_PLU]");
+                    this._Plu = base.CreateQuery<plu>("[Plu]");
                 }
-                return this._HLAVNISKUPINY_PLU;
+                return this._Plu;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Data.Objects.ObjectQuery<HLAVNISKUPINY_PLU> _HLAVNISKUPINY_PLU;
+        private global::System.Data.Objects.ObjectQuery<plu> _Plu;
         /// <summary>
-        /// There are no comments for PLU in the schema.
+        /// There are no comments for PluGroup in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Data.Objects.ObjectQuery<PLU> PLU
+        public global::System.Data.Objects.ObjectQuery<plugroup> PluGroup
         {
             get
             {
-                if ((this._PLU == null))
+                if ((this._PluGroup == null))
                 {
-                    this._PLU = base.CreateQuery<PLU>("[PLU]");
+                    this._PluGroup = base.CreateQuery<plugroup>("[PluGroup]");
                 }
-                return this._PLU;
+                return this._PluGroup;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Data.Objects.ObjectQuery<PLU> _PLU;
+        private global::System.Data.Objects.ObjectQuery<plugroup> _PluGroup;
         /// <summary>
-        /// There are no comments for SKUPINY_PLU in the schema.
+        /// There are no comments for PluMainGroup in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Data.Objects.ObjectQuery<SKUPINY_PLU> SKUPINY_PLU
+        public global::System.Data.Objects.ObjectQuery<plumaingroup> PluMainGroup
         {
             get
             {
-                if ((this._SKUPINY_PLU == null))
+                if ((this._PluMainGroup == null))
                 {
-                    this._SKUPINY_PLU = base.CreateQuery<SKUPINY_PLU>("[SKUPINY_PLU]");
+                    this._PluMainGroup = base.CreateQuery<plumaingroup>("[PluMainGroup]");
                 }
-                return this._SKUPINY_PLU;
+                return this._PluMainGroup;
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Data.Objects.ObjectQuery<SKUPINY_PLU> _SKUPINY_PLU;
+        private global::System.Data.Objects.ObjectQuery<plumaingroup> _PluMainGroup;
         /// <summary>
-        /// There are no comments for HLAVNISKUPINY_PLU in the schema.
+        /// There are no comments for Plu in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public void AddToHLAVNISKUPINY_PLU(HLAVNISKUPINY_PLU hLAVNISKUPINY_PLU)
+        public void AddToPlu(plu plu)
         {
-            base.AddObject("HLAVNISKUPINY_PLU", hLAVNISKUPINY_PLU);
+            base.AddObject("Plu", plu);
         }
         /// <summary>
-        /// There are no comments for PLU in the schema.
+        /// There are no comments for PluGroup in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public void AddToPLU(PLU pLU)
+        public void AddToPluGroup(plugroup plugroup)
         {
-            base.AddObject("PLU", pLU);
+            base.AddObject("PluGroup", plugroup);
         }
         /// <summary>
-        /// There are no comments for SKUPINY_PLU in the schema.
+        /// There are no comments for PluMainGroup in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public void AddToSKUPINY_PLU(SKUPINY_PLU sKUPINY_PLU)
+        public void AddToPluMainGroup(plumaingroup plumaingroup)
         {
-            base.AddObject("SKUPINY_PLU", sKUPINY_PLU);
+            base.AddObject("PluMainGroup", plumaingroup);
         }
     }
     /// <summary>
-    /// There are no comments for SERDModel.HLAVNISKUPINY_PLU in the schema.
+    /// There are no comments for SERDModel.plu in the schema.
     /// </summary>
     /// <KeyProperties>
     /// id
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SERDModel", Name="HLAVNISKUPINY_PLU")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SERDModel", Name="plu")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
-    public partial class HLAVNISKUPINY_PLU : global::System.Data.Objects.DataClasses.EntityObject
+    public partial class plu : global::System.Data.Objects.DataClasses.EntityObject
     {
         /// <summary>
-        /// Create a new HLAVNISKUPINY_PLU object.
-        /// </summary>
-        /// <param name="id">Initial value of id.</param>
-        /// <param name="timestamp">Initial value of timestamp.</param>
-        /// <param name="deleted">Initial value of deleted.</param>
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public static HLAVNISKUPINY_PLU CreateHLAVNISKUPINY_PLU(global::System.Guid id, global::System.DateTime timestamp, bool deleted)
-        {
-            HLAVNISKUPINY_PLU hLAVNISKUPINY_PLU = new HLAVNISKUPINY_PLU();
-            hLAVNISKUPINY_PLU.id = id;
-            hLAVNISKUPINY_PLU.timestamp = timestamp;
-            hLAVNISKUPINY_PLU.deleted = deleted;
-            return hLAVNISKUPINY_PLU;
-        }
-        /// <summary>
-        /// There are no comments for property id in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Guid id
-        {
-            get
-            {
-                return this._id;
-            }
-            set
-            {
-                this.OnidChanging(value);
-                this.ReportPropertyChanging("id");
-                this._id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("id");
-                this.OnidChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Guid _id;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnidChanging(global::System.Guid value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnidChanged();
-        /// <summary>
-        /// There are no comments for property nazev in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string nazev
-        {
-            get
-            {
-                return this._nazev;
-            }
-            set
-            {
-                this.OnnazevChanging(value);
-                this.ReportPropertyChanging("nazev");
-                this._nazev = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("nazev");
-                this.OnnazevChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _nazev;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnnazevChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnnazevChanged();
-        /// <summary>
-        /// There are no comments for property timestamp in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.DateTime timestamp
-        {
-            get
-            {
-                return this._timestamp;
-            }
-            set
-            {
-                this.OntimestampChanging(value);
-                this.ReportPropertyChanging("timestamp");
-                this._timestamp = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("timestamp");
-                this.OntimestampChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.DateTime _timestamp;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OntimestampChanging(global::System.DateTime value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OntimestampChanged();
-        /// <summary>
-        /// There are no comments for property deleted in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public bool deleted
-        {
-            get
-            {
-                return this._deleted;
-            }
-            set
-            {
-                this.OndeletedChanging(value);
-                this.ReportPropertyChanging("deleted");
-                this._deleted = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("deleted");
-                this.OndeletedChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private bool _deleted;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OndeletedChanging(bool value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OndeletedChanged();
-        /// <summary>
-        /// There are no comments for SKUPINY_PLU in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SERDModel", "FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "SKUPINY_PLU")]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<SKUPINY_PLU> SKUPINY_PLU
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<SKUPINY_PLU>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "SKUPINY_PLU");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<SKUPINY_PLU>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "SKUPINY_PLU", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// There are no comments for SERDModel.PLU in the schema.
-    /// </summary>
-    /// <KeyProperties>
-    /// id
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SERDModel", Name="PLU")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class PLU : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// Create a new PLU object.
+        /// Create a new plu object.
         /// </summary>
         /// <param name="id">Initial value of id.</param>
         /// <param name="ean">Initial value of ean.</param>
-        /// <param name="nazev1">Initial value of nazev1.</param>
-        /// <param name="cena1">Initial value of cena1.</param>
+        /// <param name="name1">Initial value of name1.</param>
+        /// <param name="price1">Initial value of price1.</param>
         /// <param name="timestamp">Initial value of timestamp.</param>
         /// <param name="deleted">Initial value of deleted.</param>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public static PLU CreatePLU(global::System.Guid id, int ean, string nazev1, decimal cena1, global::System.DateTime timestamp, bool deleted)
+        public static plu Createplu(global::System.Guid id, int ean, string name1, decimal price1, global::System.DateTime timestamp, bool deleted)
         {
-            PLU pLU = new PLU();
-            pLU.id = id;
-            pLU.ean = ean;
-            pLU.nazev1 = nazev1;
-            pLU.cena1 = cena1;
-            pLU.timestamp = timestamp;
-            pLU.deleted = deleted;
-            return pLU;
+            plu plu = new plu();
+            plu.id = id;
+            plu.ean = ean;
+            plu.name1 = name1;
+            plu.price1 = price1;
+            plu.timestamp = timestamp;
+            plu.deleted = deleted;
+            return plu;
         }
         /// <summary>
         /// There are no comments for property id in the schema.
@@ -367,221 +210,221 @@ namespace RestService
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OneanChanged();
         /// <summary>
-        /// There are no comments for property nazev1 in the schema.
+        /// There are no comments for property name1 in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string nazev1
+        public string name1
         {
             get
             {
-                return this._nazev1;
+                return this._name1;
             }
             set
             {
-                this.Onnazev1Changing(value);
-                this.ReportPropertyChanging("nazev1");
-                this._nazev1 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("nazev1");
-                this.Onnazev1Changed();
+                this.Onname1Changing(value);
+                this.ReportPropertyChanging("name1");
+                this._name1 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("name1");
+                this.Onname1Changed();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _nazev1;
+        private string _name1;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onnazev1Changing(string value);
+        partial void Onname1Changing(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onnazev1Changed();
+        partial void Onname1Changed();
         /// <summary>
-        /// There are no comments for property nazev2 in the schema.
+        /// There are no comments for property name2 in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string nazev2
+        public string name2
         {
             get
             {
-                return this._nazev2;
+                return this._name2;
             }
             set
             {
-                this.Onnazev2Changing(value);
-                this.ReportPropertyChanging("nazev2");
-                this._nazev2 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("nazev2");
-                this.Onnazev2Changed();
+                this.Onname2Changing(value);
+                this.ReportPropertyChanging("name2");
+                this._name2 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("name2");
+                this.Onname2Changed();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _nazev2;
+        private string _name2;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onnazev2Changing(string value);
+        partial void Onname2Changing(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onnazev2Changed();
+        partial void Onname2Changed();
         /// <summary>
-        /// There are no comments for property nazev3 in the schema.
+        /// There are no comments for property name3 in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string nazev3
+        public string name3
         {
             get
             {
-                return this._nazev3;
+                return this._name3;
             }
             set
             {
-                this.Onnazev3Changing(value);
-                this.ReportPropertyChanging("nazev3");
-                this._nazev3 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("nazev3");
-                this.Onnazev3Changed();
+                this.Onname3Changing(value);
+                this.ReportPropertyChanging("name3");
+                this._name3 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("name3");
+                this.Onname3Changed();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _nazev3;
+        private string _name3;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onnazev3Changing(string value);
+        partial void Onname3Changing(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onnazev3Changed();
+        partial void Onname3Changed();
         /// <summary>
-        /// There are no comments for property cena1 in the schema.
+        /// There are no comments for property price1 in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public decimal cena1
+        public decimal price1
         {
             get
             {
-                return this._cena1;
+                return this._price1;
             }
             set
             {
-                this.Oncena1Changing(value);
-                this.ReportPropertyChanging("cena1");
-                this._cena1 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("cena1");
-                this.Oncena1Changed();
+                this.Onprice1Changing(value);
+                this.ReportPropertyChanging("price1");
+                this._price1 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("price1");
+                this.Onprice1Changed();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private decimal _cena1;
+        private decimal _price1;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Oncena1Changing(decimal value);
+        partial void Onprice1Changing(decimal value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Oncena1Changed();
+        partial void Onprice1Changed();
         /// <summary>
-        /// There are no comments for property cena2 in the schema.
+        /// There are no comments for property price2 in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<decimal> cena2
+        public global::System.Nullable<decimal> price2
         {
             get
             {
-                return this._cena2;
+                return this._price2;
             }
             set
             {
-                this.Oncena2Changing(value);
-                this.ReportPropertyChanging("cena2");
-                this._cena2 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("cena2");
-                this.Oncena2Changed();
+                this.Onprice2Changing(value);
+                this.ReportPropertyChanging("price2");
+                this._price2 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("price2");
+                this.Onprice2Changed();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<decimal> _cena2;
+        private global::System.Nullable<decimal> _price2;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Oncena2Changing(global::System.Nullable<decimal> value);
+        partial void Onprice2Changing(global::System.Nullable<decimal> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Oncena2Changed();
+        partial void Onprice2Changed();
         /// <summary>
-        /// There are no comments for property cena3 in the schema.
+        /// There are no comments for property price3 in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<decimal> cena3
+        public global::System.Nullable<decimal> price3
         {
             get
             {
-                return this._cena3;
+                return this._price3;
             }
             set
             {
-                this.Oncena3Changing(value);
-                this.ReportPropertyChanging("cena3");
-                this._cena3 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("cena3");
-                this.Oncena3Changed();
+                this.Onprice3Changing(value);
+                this.ReportPropertyChanging("price3");
+                this._price3 = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("price3");
+                this.Onprice3Changed();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<decimal> _cena3;
+        private global::System.Nullable<decimal> _price3;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Oncena3Changing(global::System.Nullable<decimal> value);
+        partial void Onprice3Changing(global::System.Nullable<decimal> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Oncena3Changed();
+        partial void Onprice3Changed();
         /// <summary>
-        /// There are no comments for property dph_id in the schema.
+        /// There are no comments for property vat_id in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.Guid> dph_id
+        public global::System.Nullable<global::System.Guid> vat_id
         {
             get
             {
-                return this._dph_id;
+                return this._vat_id;
             }
             set
             {
-                this.Ondph_idChanging(value);
-                this.ReportPropertyChanging("dph_id");
-                this._dph_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("dph_id");
-                this.Ondph_idChanged();
+                this.Onvat_idChanging(value);
+                this.ReportPropertyChanging("vat_id");
+                this._vat_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("vat_id");
+                this.Onvat_idChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.Guid> _dph_id;
+        private global::System.Nullable<global::System.Guid> _vat_id;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Ondph_idChanging(global::System.Nullable<global::System.Guid> value);
+        partial void Onvat_idChanging(global::System.Nullable<global::System.Guid> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Ondph_idChanged();
+        partial void Onvat_idChanged();
         /// <summary>
-        /// There are no comments for property zs_id in the schema.
+        /// There are no comments for property department_id in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.Guid> zs_id
+        public global::System.Nullable<global::System.Guid> department_id
         {
             get
             {
-                return this._zs_id;
+                return this._department_id;
             }
             set
             {
-                this.Onzs_idChanging(value);
-                this.ReportPropertyChanging("zs_id");
-                this._zs_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("zs_id");
-                this.Onzs_idChanged();
+                this.Ondepartment_idChanging(value);
+                this.ReportPropertyChanging("department_id");
+                this._department_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("department_id");
+                this.Ondepartment_idChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.Guid> _zs_id;
+        private global::System.Nullable<global::System.Guid> _department_id;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onzs_idChanging(global::System.Nullable<global::System.Guid> value);
+        partial void Ondepartment_idChanging(global::System.Nullable<global::System.Guid> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onzs_idChanged();
+        partial void Ondepartment_idChanged();
         /// <summary>
         /// There are no comments for property text in the schema.
         /// </summary>
@@ -664,437 +507,383 @@ namespace RestService
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void Onstatus2Changed();
         /// <summary>
-        /// There are no comments for property halo_lalo in the schema.
+        /// There are no comments for property halolalo in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> halo_lalo
+        public global::System.Nullable<int> halolalo
         {
             get
             {
-                return this._halo_lalo;
+                return this._halolalo;
             }
             set
             {
-                this.Onhalo_laloChanging(value);
-                this.ReportPropertyChanging("halo_lalo");
-                this._halo_lalo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("halo_lalo");
-                this.Onhalo_laloChanged();
+                this.OnhalolaloChanging(value);
+                this.ReportPropertyChanging("halolalo");
+                this._halolalo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("halolalo");
+                this.OnhalolaloChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _halo_lalo;
+        private global::System.Nullable<int> _halolalo;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onhalo_laloChanging(global::System.Nullable<int> value);
+        partial void OnhalolaloChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onhalo_laloChanged();
+        partial void OnhalolaloChanged();
         /// <summary>
-        /// There are no comments for property link_plu1_id in the schema.
+        /// There are no comments for property linkplu1_id in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.Guid> link_plu1_id
+        public global::System.Nullable<global::System.Guid> linkplu1_id
         {
             get
             {
-                return this._link_plu1_id;
+                return this._linkplu1_id;
             }
             set
             {
-                this.Onlink_plu1_idChanging(value);
-                this.ReportPropertyChanging("link_plu1_id");
-                this._link_plu1_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("link_plu1_id");
-                this.Onlink_plu1_idChanged();
+                this.Onlinkplu1_idChanging(value);
+                this.ReportPropertyChanging("linkplu1_id");
+                this._linkplu1_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("linkplu1_id");
+                this.Onlinkplu1_idChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.Guid> _link_plu1_id;
+        private global::System.Nullable<global::System.Guid> _linkplu1_id;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onlink_plu1_idChanging(global::System.Nullable<global::System.Guid> value);
+        partial void Onlinkplu1_idChanging(global::System.Nullable<global::System.Guid> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onlink_plu1_idChanged();
+        partial void Onlinkplu1_idChanged();
         /// <summary>
-        /// There are no comments for property link_plu1_pocet in the schema.
+        /// There are no comments for property linkplu2_id in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> link_plu1_pocet
+        public global::System.Nullable<global::System.Guid> linkplu2_id
         {
             get
             {
-                return this._link_plu1_pocet;
+                return this._linkplu2_id;
             }
             set
             {
-                this.Onlink_plu1_pocetChanging(value);
-                this.ReportPropertyChanging("link_plu1_pocet");
-                this._link_plu1_pocet = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("link_plu1_pocet");
-                this.Onlink_plu1_pocetChanged();
+                this.Onlinkplu2_idChanging(value);
+                this.ReportPropertyChanging("linkplu2_id");
+                this._linkplu2_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("linkplu2_id");
+                this.Onlinkplu2_idChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _link_plu1_pocet;
+        private global::System.Nullable<global::System.Guid> _linkplu2_id;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onlink_plu1_pocetChanging(global::System.Nullable<int> value);
+        partial void Onlinkplu2_idChanging(global::System.Nullable<global::System.Guid> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onlink_plu1_pocetChanged();
+        partial void Onlinkplu2_idChanged();
         /// <summary>
-        /// There are no comments for property link_plu2_id in the schema.
+        /// There are no comments for property coefficient in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.Guid> link_plu2_id
+        public global::System.Nullable<decimal> coefficient
         {
             get
             {
-                return this._link_plu2_id;
+                return this._coefficient;
             }
             set
             {
-                this.Onlink_plu2_idChanging(value);
-                this.ReportPropertyChanging("link_plu2_id");
-                this._link_plu2_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("link_plu2_id");
-                this.Onlink_plu2_idChanged();
+                this.OncoefficientChanging(value);
+                this.ReportPropertyChanging("coefficient");
+                this._coefficient = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("coefficient");
+                this.OncoefficientChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.Guid> _link_plu2_id;
+        private global::System.Nullable<decimal> _coefficient;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onlink_plu2_idChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OncoefficientChanging(global::System.Nullable<decimal> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onlink_plu2_idChanged();
+        partial void OncoefficientChanged();
         /// <summary>
-        /// There are no comments for property link_plu2_pocet in the schema.
+        /// There are no comments for property ordertype in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> link_plu2_pocet
+        public global::System.Nullable<int> ordertype
         {
             get
             {
-                return this._link_plu2_pocet;
+                return this._ordertype;
             }
             set
             {
-                this.Onlink_plu2_pocetChanging(value);
-                this.ReportPropertyChanging("link_plu2_pocet");
-                this._link_plu2_pocet = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("link_plu2_pocet");
-                this.Onlink_plu2_pocetChanged();
+                this.OnordertypeChanging(value);
+                this.ReportPropertyChanging("ordertype");
+                this._ordertype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ordertype");
+                this.OnordertypeChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _link_plu2_pocet;
+        private global::System.Nullable<int> _ordertype;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onlink_plu2_pocetChanging(global::System.Nullable<int> value);
+        partial void OnordertypeChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onlink_plu2_pocetChanged();
+        partial void OnordertypeChanged();
         /// <summary>
-        /// There are no comments for property koeficient in the schema.
+        /// There are no comments for property menuvol in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<decimal> koeficient
+        public global::System.Nullable<short> menuvol
         {
             get
             {
-                return this._koeficient;
+                return this._menuvol;
             }
             set
             {
-                this.OnkoeficientChanging(value);
-                this.ReportPropertyChanging("koeficient");
-                this._koeficient = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("koeficient");
-                this.OnkoeficientChanged();
+                this.OnmenuvolChanging(value);
+                this.ReportPropertyChanging("menuvol");
+                this._menuvol = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("menuvol");
+                this.OnmenuvolChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<decimal> _koeficient;
+        private global::System.Nullable<short> _menuvol;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnkoeficientChanging(global::System.Nullable<decimal> value);
+        partial void OnmenuvolChanging(global::System.Nullable<short> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnkoeficientChanged();
+        partial void OnmenuvolChanged();
         /// <summary>
-        /// There are no comments for property objednavka_typ in the schema.
+        /// There are no comments for property menupat in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> objednavka_typ
+        public global::System.Nullable<short> menupat
         {
             get
             {
-                return this._objednavka_typ;
+                return this._menupat;
             }
             set
             {
-                this.Onobjednavka_typChanging(value);
-                this.ReportPropertyChanging("objednavka_typ");
-                this._objednavka_typ = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("objednavka_typ");
-                this.Onobjednavka_typChanged();
+                this.OnmenupatChanging(value);
+                this.ReportPropertyChanging("menupat");
+                this._menupat = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("menupat");
+                this.OnmenupatChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _objednavka_typ;
+        private global::System.Nullable<short> _menupat;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onobjednavka_typChanging(global::System.Nullable<int> value);
+        partial void OnmenupatChanging(global::System.Nullable<short> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onobjednavka_typChanged();
+        partial void OnmenupatChanged();
         /// <summary>
-        /// There are no comments for property menu_vol in the schema.
+        /// There are no comments for property happyhour in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<short> menu_vol
+        public global::System.Nullable<int> happyhour
         {
             get
             {
-                return this._menu_vol;
+                return this._happyhour;
             }
             set
             {
-                this.Onmenu_volChanging(value);
-                this.ReportPropertyChanging("menu_vol");
-                this._menu_vol = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("menu_vol");
-                this.Onmenu_volChanged();
+                this.OnhappyhourChanging(value);
+                this.ReportPropertyChanging("happyhour");
+                this._happyhour = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("happyhour");
+                this.OnhappyhourChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<short> _menu_vol;
+        private global::System.Nullable<int> _happyhour;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onmenu_volChanging(global::System.Nullable<short> value);
+        partial void OnhappyhourChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onmenu_volChanged();
+        partial void OnhappyhourChanged();
         /// <summary>
-        /// There are no comments for property menu_pat in the schema.
+        /// There are no comments for property pictogram_id in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<short> menu_pat
+        public global::System.Nullable<global::System.Guid> pictogram_id
         {
             get
             {
-                return this._menu_pat;
+                return this._pictogram_id;
             }
             set
             {
-                this.Onmenu_patChanging(value);
-                this.ReportPropertyChanging("menu_pat");
-                this._menu_pat = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("menu_pat");
-                this.Onmenu_patChanged();
+                this.Onpictogram_idChanging(value);
+                this.ReportPropertyChanging("pictogram_id");
+                this._pictogram_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("pictogram_id");
+                this.Onpictogram_idChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<short> _menu_pat;
+        private global::System.Nullable<global::System.Guid> _pictogram_id;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onmenu_patChanging(global::System.Nullable<short> value);
+        partial void Onpictogram_idChanging(global::System.Nullable<global::System.Guid> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onmenu_patChanged();
+        partial void Onpictogram_idChanged();
         /// <summary>
-        /// There are no comments for property stastna_hodina in the schema.
+        /// There are no comments for property state in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> stastna_hodina
+        public global::System.Nullable<int> state
         {
             get
             {
-                return this._stastna_hodina;
+                return this._state;
             }
             set
             {
-                this.Onstastna_hodinaChanging(value);
-                this.ReportPropertyChanging("stastna_hodina");
-                this._stastna_hodina = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("stastna_hodina");
-                this.Onstastna_hodinaChanged();
+                this.OnstateChanging(value);
+                this.ReportPropertyChanging("state");
+                this._state = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("state");
+                this.OnstateChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _stastna_hodina;
+        private global::System.Nullable<int> _state;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onstastna_hodinaChanging(global::System.Nullable<int> value);
+        partial void OnstateChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onstastna_hodinaChanged();
+        partial void OnstateChanged();
         /// <summary>
-        /// There are no comments for property piktogram_id in the schema.
+        /// There are no comments for property blocked in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.Guid> piktogram_id
+        public global::System.Nullable<int> blocked
         {
             get
             {
-                return this._piktogram_id;
+                return this._blocked;
             }
             set
             {
-                this.Onpiktogram_idChanging(value);
-                this.ReportPropertyChanging("piktogram_id");
-                this._piktogram_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("piktogram_id");
-                this.Onpiktogram_idChanged();
+                this.OnblockedChanging(value);
+                this.ReportPropertyChanging("blocked");
+                this._blocked = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("blocked");
+                this.OnblockedChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.Guid> _piktogram_id;
+        private global::System.Nullable<int> _blocked;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onpiktogram_idChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnblockedChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onpiktogram_idChanged();
+        partial void OnblockedChanged();
         /// <summary>
-        /// There are no comments for property stav in the schema.
+        /// There are no comments for property source_id in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> stav
+        public global::System.Nullable<global::System.Guid> source_id
         {
             get
             {
-                return this._stav;
+                return this._source_id;
             }
             set
             {
-                this.OnstavChanging(value);
-                this.ReportPropertyChanging("stav");
-                this._stav = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("stav");
-                this.OnstavChanged();
+                this.Onsource_idChanging(value);
+                this.ReportPropertyChanging("source_id");
+                this._source_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("source_id");
+                this.Onsource_idChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _stav;
+        private global::System.Nullable<global::System.Guid> _source_id;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnstavChanging(global::System.Nullable<int> value);
+        partial void Onsource_idChanging(global::System.Nullable<global::System.Guid> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnstavChanged();
+        partial void Onsource_idChanged();
         /// <summary>
-        /// There are no comments for property blokace in the schema.
+        /// There are no comments for property sourcenumstock in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> blokace
+        public global::System.Nullable<int> sourcenumstock
         {
             get
             {
-                return this._blokace;
+                return this._sourcenumstock;
             }
             set
             {
-                this.OnblokaceChanging(value);
-                this.ReportPropertyChanging("blokace");
-                this._blokace = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("blokace");
-                this.OnblokaceChanged();
+                this.OnsourcenumstockChanging(value);
+                this.ReportPropertyChanging("sourcenumstock");
+                this._sourcenumstock = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sourcenumstock");
+                this.OnsourcenumstockChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _blokace;
+        private global::System.Nullable<int> _sourcenumstock;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnblokaceChanging(global::System.Nullable<int> value);
+        partial void OnsourcenumstockChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnblokaceChanged();
+        partial void OnsourcenumstockChanged();
         /// <summary>
-        /// There are no comments for property zdroj_id in the schema.
+        /// There are no comments for property sourcestock in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<global::System.Guid> zdroj_id
+        public global::System.Nullable<int> sourcestock
         {
             get
             {
-                return this._zdroj_id;
+                return this._sourcestock;
             }
             set
             {
-                this.Onzdroj_idChanging(value);
-                this.ReportPropertyChanging("zdroj_id");
-                this._zdroj_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("zdroj_id");
-                this.Onzdroj_idChanged();
+                this.OnsourcestockChanging(value);
+                this.ReportPropertyChanging("sourcestock");
+                this._sourcestock = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sourcestock");
+                this.OnsourcestockChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<global::System.Guid> _zdroj_id;
+        private global::System.Nullable<int> _sourcestock;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onzdroj_idChanging(global::System.Nullable<global::System.Guid> value);
+        partial void OnsourcestockChanging(global::System.Nullable<int> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onzdroj_idChanged();
-        /// <summary>
-        /// There are no comments for property zdroj_cislo in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> zdroj_cislo
-        {
-            get
-            {
-                return this._zdroj_cislo;
-            }
-            set
-            {
-                this.Onzdroj_cisloChanging(value);
-                this.ReportPropertyChanging("zdroj_cislo");
-                this._zdroj_cislo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("zdroj_cislo");
-                this.Onzdroj_cisloChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _zdroj_cislo;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onzdroj_cisloChanging(global::System.Nullable<int> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onzdroj_cisloChanged();
-        /// <summary>
-        /// There are no comments for property zdroj_sklad in the schema.
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public global::System.Nullable<int> zdroj_sklad
-        {
-            get
-            {
-                return this._zdroj_sklad;
-            }
-            set
-            {
-                this.Onzdroj_skladChanging(value);
-                this.ReportPropertyChanging("zdroj_sklad");
-                this._zdroj_sklad = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("zdroj_sklad");
-                this.Onzdroj_skladChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private global::System.Nullable<int> _zdroj_sklad;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onzdroj_skladChanging(global::System.Nullable<int> value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void Onzdroj_skladChanged();
+        partial void OnsourcestockChanged();
         /// <summary>
         /// There are no comments for property timestamp in the schema.
         /// </summary>
@@ -1150,70 +939,124 @@ namespace RestService
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OndeletedChanged();
         /// <summary>
-        /// There are no comments for SKUPINY_PLU in the schema.
+        /// There are no comments for property linkplu1quantity in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SERDModel", "FK_PLU_SKUPINY_PLU", "SKUPINY_PLU")]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> linkplu1quantity
+        {
+            get
+            {
+                return this._linkplu1quantity;
+            }
+            set
+            {
+                this.Onlinkplu1quantityChanging(value);
+                this.ReportPropertyChanging("linkplu1quantity");
+                this._linkplu1quantity = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("linkplu1quantity");
+                this.Onlinkplu1quantityChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _linkplu1quantity;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void Onlinkplu1quantityChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void Onlinkplu1quantityChanged();
+        /// <summary>
+        /// There are no comments for property linkplu2quantity in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<int> linkplu2quantity
+        {
+            get
+            {
+                return this._linkplu2quantity;
+            }
+            set
+            {
+                this.Onlinkplu2quantityChanging(value);
+                this.ReportPropertyChanging("linkplu2quantity");
+                this._linkplu2quantity = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("linkplu2quantity");
+                this.Onlinkplu2quantityChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<int> _linkplu2quantity;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void Onlinkplu2quantityChanging(global::System.Nullable<int> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void Onlinkplu2quantityChanged();
+        /// <summary>
+        /// There are no comments for plugroup in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SERDModel", "FK_PLU_SKUPINY_PLU", "plugroup")]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public SKUPINY_PLU SKUPINY_PLU
+        public plugroup plugroup
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<SKUPINY_PLU>("SERDModel.FK_PLU_SKUPINY_PLU", "SKUPINY_PLU").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<plugroup>("SERDModel.FK_PLU_SKUPINY_PLU", "plugroup").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<SKUPINY_PLU>("SERDModel.FK_PLU_SKUPINY_PLU", "SKUPINY_PLU").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<plugroup>("SERDModel.FK_PLU_SKUPINY_PLU", "plugroup").Value = value;
             }
         }
         /// <summary>
-        /// There are no comments for SKUPINY_PLU in the schema.
+        /// There are no comments for plugroup in the schema.
         /// </summary>
         [global::System.ComponentModel.BrowsableAttribute(false)]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<SKUPINY_PLU> SKUPINY_PLUReference
+        public global::System.Data.Objects.DataClasses.EntityReference<plugroup> plugroupReference
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<SKUPINY_PLU>("SERDModel.FK_PLU_SKUPINY_PLU", "SKUPINY_PLU");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<plugroup>("SERDModel.FK_PLU_SKUPINY_PLU", "plugroup");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<SKUPINY_PLU>("SERDModel.FK_PLU_SKUPINY_PLU", "SKUPINY_PLU", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<plugroup>("SERDModel.FK_PLU_SKUPINY_PLU", "plugroup", value);
                 }
             }
         }
     }
     /// <summary>
-    /// There are no comments for SERDModel.SKUPINY_PLU in the schema.
+    /// There are no comments for SERDModel.plugroup in the schema.
     /// </summary>
     /// <KeyProperties>
     /// id
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SERDModel", Name="SKUPINY_PLU")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SERDModel", Name="plugroup")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
-    public partial class SKUPINY_PLU : global::System.Data.Objects.DataClasses.EntityObject
+    public partial class plugroup : global::System.Data.Objects.DataClasses.EntityObject
     {
         /// <summary>
-        /// Create a new SKUPINY_PLU object.
+        /// Create a new plugroup object.
         /// </summary>
         /// <param name="id">Initial value of id.</param>
         /// <param name="timestamp">Initial value of timestamp.</param>
         /// <param name="deleted">Initial value of deleted.</param>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public static SKUPINY_PLU CreateSKUPINY_PLU(global::System.Guid id, global::System.DateTime timestamp, bool deleted)
+        public static plugroup Createplugroup(global::System.Guid id, global::System.DateTime timestamp, bool deleted)
         {
-            SKUPINY_PLU sKUPINY_PLU = new SKUPINY_PLU();
-            sKUPINY_PLU.id = id;
-            sKUPINY_PLU.timestamp = timestamp;
-            sKUPINY_PLU.deleted = deleted;
-            return sKUPINY_PLU;
+            plugroup plugroup = new plugroup();
+            plugroup.id = id;
+            plugroup.timestamp = timestamp;
+            plugroup.deleted = deleted;
+            return plugroup;
         }
         /// <summary>
         /// There are no comments for property id in the schema.
@@ -1243,32 +1086,32 @@ namespace RestService
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnidChanged();
         /// <summary>
-        /// There are no comments for property nazev in the schema.
+        /// There are no comments for property name in the schema.
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string nazev
+        public string name
         {
             get
             {
-                return this._nazev;
+                return this._name;
             }
             set
             {
-                this.OnnazevChanging(value);
-                this.ReportPropertyChanging("nazev");
-                this._nazev = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("nazev");
-                this.OnnazevChanged();
+                this.OnnameChanging(value);
+                this.ReportPropertyChanging("name");
+                this._name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("name");
+                this.OnnameChanged();
             }
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _nazev;
+        private string _name;
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnnazevChanging(string value);
+        partial void OnnameChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnnazevChanged();
+        partial void OnnameChanged();
         /// <summary>
         /// There are no comments for property timestamp in the schema.
         /// </summary>
@@ -1324,63 +1167,220 @@ namespace RestService
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OndeletedChanged();
         /// <summary>
-        /// There are no comments for HLAVNISKUPINY_PLU in the schema.
+        /// There are no comments for plu in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SERDModel", "FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "HLAVNISKUPINY_PLU")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SERDModel", "FK_PLU_SKUPINY_PLU", "plu")]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public HLAVNISKUPINY_PLU HLAVNISKUPINY_PLU
+        public global::System.Data.Objects.DataClasses.EntityCollection<plu> plu
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<HLAVNISKUPINY_PLU>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "HLAVNISKUPINY_PLU").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<HLAVNISKUPINY_PLU>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "HLAVNISKUPINY_PLU").Value = value;
-            }
-        }
-        /// <summary>
-        /// There are no comments for HLAVNISKUPINY_PLU in the schema.
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<HLAVNISKUPINY_PLU> HLAVNISKUPINY_PLUReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<HLAVNISKUPINY_PLU>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "HLAVNISKUPINY_PLU");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<plu>("SERDModel.FK_PLU_SKUPINY_PLU", "plu");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<HLAVNISKUPINY_PLU>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "HLAVNISKUPINY_PLU", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<plu>("SERDModel.FK_PLU_SKUPINY_PLU", "plu", value);
                 }
             }
         }
         /// <summary>
-        /// There are no comments for PLU in the schema.
+        /// There are no comments for plumaingroup in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SERDModel", "FK_PLU_SKUPINY_PLU", "PLU")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SERDModel", "FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plumaingroup")]
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<PLU> PLU
+        public plumaingroup plumaingroup
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<PLU>("SERDModel.FK_PLU_SKUPINY_PLU", "PLU");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<plumaingroup>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plumaingroup").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<plumaingroup>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plumaingroup").Value = value;
+            }
+        }
+        /// <summary>
+        /// There are no comments for plumaingroup in the schema.
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<plumaingroup> plumaingroupReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<plumaingroup>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plumaingroup");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<PLU>("SERDModel.FK_PLU_SKUPINY_PLU", "PLU", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<plumaingroup>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plumaingroup", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// There are no comments for SERDModel.plumaingroup in the schema.
+    /// </summary>
+    /// <KeyProperties>
+    /// id
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SERDModel", Name="plumaingroup")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class plumaingroup : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// Create a new plumaingroup object.
+        /// </summary>
+        /// <param name="id">Initial value of id.</param>
+        /// <param name="timestamp">Initial value of timestamp.</param>
+        /// <param name="deleted">Initial value of deleted.</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static plumaingroup Createplumaingroup(global::System.Guid id, global::System.DateTime timestamp, bool deleted)
+        {
+            plumaingroup plumaingroup = new plumaingroup();
+            plumaingroup.id = id;
+            plumaingroup.timestamp = timestamp;
+            plumaingroup.deleted = deleted;
+            return plumaingroup;
+        }
+        /// <summary>
+        /// There are no comments for property id in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Guid id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                this.OnidChanging(value);
+                this.ReportPropertyChanging("id");
+                this._id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("id");
+                this.OnidChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Guid _id;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnidChanging(global::System.Guid value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnidChanged();
+        /// <summary>
+        /// There are no comments for property name in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string name
+        {
+            get
+            {
+                return this._name;
+            }
+            set
+            {
+                this.OnnameChanging(value);
+                this.ReportPropertyChanging("name");
+                this._name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("name");
+                this.OnnameChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _name;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnnameChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnnameChanged();
+        /// <summary>
+        /// There are no comments for property timestamp in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.DateTime timestamp
+        {
+            get
+            {
+                return this._timestamp;
+            }
+            set
+            {
+                this.OntimestampChanging(value);
+                this.ReportPropertyChanging("timestamp");
+                this._timestamp = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("timestamp");
+                this.OntimestampChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.DateTime _timestamp;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OntimestampChanging(global::System.DateTime value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OntimestampChanged();
+        /// <summary>
+        /// There are no comments for property deleted in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public bool deleted
+        {
+            get
+            {
+                return this._deleted;
+            }
+            set
+            {
+                this.OndeletedChanging(value);
+                this.ReportPropertyChanging("deleted");
+                this._deleted = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("deleted");
+                this.OndeletedChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private bool _deleted;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OndeletedChanging(bool value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OndeletedChanged();
+        /// <summary>
+        /// There are no comments for plugroup in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SERDModel", "FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plugroup")]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<plugroup> plugroup
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<plugroup>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plugroup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<plugroup>("SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU", "plugroup", value);
                 }
             }
         }

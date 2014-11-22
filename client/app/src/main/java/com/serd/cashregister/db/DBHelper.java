@@ -23,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
             "( " +
             "'_id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "ID TEXT, " +
-            "TITLE TEXT, " +
+            "NAME TEXT, " +
             "SERVERTIMESTAMP TEXT," +
             "CLIENTTIMESTAMP TEXT," +
             "DELETED NUMBER" +
@@ -35,7 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
             "'_id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "ID TEXT, " +
             "PLUMAINGROUP_ID TEXT, " +
-            "TITLE TEXT, " +
+            "NAME TEXT, " +
             "SERVERTIMESTAMP TEXT," +
             "CLIENTTIMESTAMP TEXT," +
             "DELETED NUMBER" +
@@ -47,34 +47,34 @@ public class DBHelper extends SQLiteOpenHelper {
             "'_id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "ID TEXT, " +
             "PLUGROUP_ID TEXT, " +
-            "DPH_ID TEXT" +
-            "ZS_ID TEXT" +
-            "EAN INTEGER" +
-            "TITLE1 TEXT, " +
-            "TITLE2 TEXT, " +
-            "TITLE3 TEXT, " +
+            "VAT_ID TEXT, " +
+            "DEPARTMENT_ID TEXT, " +
+            "EAN INTEGER, " +
+            "NAME1 TEXT, " +
+            "NAME2 TEXT, " +
+            "NAME3 TEXT, " +
             "PRICE1 REAL, " +
             "PRICE2 REAL, " +
             "PRICE3 REAL, " +
             "NOTE TEXT, " +
             "STATUS1 INTEGER, " +
             "STATUS2 INTEGER, " +
-            "HALO_LALO INTEGER, " +
-            "LINK_PLU1_ID TEXT, " +
-            "LINK_PLU1_COUNT INTEGER, " +
-            "LINK_PLU2_ID TEXT, " +
-            "LINK_PLU2_COUNT INTEGER, " +
+            "HALOLALO INTEGER, " +
+            "LINKPLU1_ID TEXT, " +
+            "LINKPLU1QUANTITY INTEGER, " +
+            "LINKPLU2_ID TEXT, " +
+            "LINKPLU2QUANTITY INTEGER, " +
             "COEFFICIENT REAL, " +
-            "ORDER_TYPE INTEGER, " +
-            "MENU_VOL INTEGER, " +
-            "MENU_PAT INTEGER, " +
-            "HAPPY_HOUR INTEGER, " +
-            "PICTURE_ID TEXT, " +
+            "ORDERTYPE INTEGER, " +
+            "MENUVOL INTEGER, " +
+            "MENUPAT INTEGER, " +
+            "HAPPYHOUR INTEGER, " +
+            "PICTOGRAM_ID TEXT, " +
             "STATE INTEGER, " +
-            "BLOCKING INTEGER, " +
+            "BLOCKED INTEGER, " +
             "SOURCE_ID TEXT, " +
-            "SOURCE_NUMBER INTEGER, " +
-            "SOURCE_WAREHOUSE INTEGER, " +
+            "SOURCENUMSTOCK INTEGER, " +
+            "SOURCESTOCK INTEGER, " +
             "SERVERTIMESTAMP TEXT," +
             "CLIENTTIMESTAMP TEXT," +
             "DELETED NUMBER" +
@@ -158,6 +158,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 " UPDATE " + TABLE_NAME_PLU + " SET SERVERTIMESTAMP = '1900-01-01 00:00:00' WHERE _id = NEW._id; " +
                 " END;");
 
+        AddTestingData(db);
     }
 
     @Override
@@ -166,13 +167,21 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void AddTestingData() {
-        SQLiteDatabase db = getWritableDatabase();
+    public void AddTestingData(SQLiteDatabase db) {
 
-        db.execSQL("INSERT INTO " + TABLE_NAME_PLUMAINGROUP + "(_id, ID, TITLE, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
-                "VALUES (0, '7f8294e2-ed08-46b8-8273-fa0c06ed175d', 'Jidlo'   , '01.01.1900 00:00', '01.01.1900 00:00', 0)," +
-                "VALUES (1, '7f8294e2-ed08-46b8-8273-fa0c06ed175d', 'Napoje'  , '01.01.1900 00:00', '01.01.1900 00:00', 0)," +
-                "VALUES (2, '7f8294e2-ed08-46b8-8273-fa0c06ed175d', 'Cigarety', '01.01.1900 00:00', '01.01.1900 00:00', 0)");
+        db.execSQL("INSERT INTO " + TABLE_NAME_PLUMAINGROUP + "(ID, NAME, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
+                "VALUES ('7f8294e2-ed08-46b8-8273-fa0c06ed175d', 'Jidlo'   , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
+        db.execSQL("INSERT INTO " + TABLE_NAME_PLUMAINGROUP + "(ID, NAME, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
+                "VALUES ('2d534d40-403d-4234-b92e-a11ce853426d', 'Napoje'  , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
+
+        db.execSQL("INSERT INTO " + TABLE_NAME_PLUGROUP + "(ID, PLUMAINGROUP_ID, NAME, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
+                "VALUES ('f2112f50-3268-4fe0-afe9-407f761eea23', 'ff1d55f6-28ff-4f75-95c7-d3276335173f', 'Nealko'  , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
+        db.execSQL("INSERT INTO " + TABLE_NAME_PLUGROUP + "(ID, PLUMAINGROUP_ID, NAME, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
+                "VALUES ('b51d2c0d-43fb-4efd-92cd-8a78fc2f8886', 'ff1d55f6-28ff-4f75-95c7-d3276335173f', 'Alkohol'  , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
+
+        db.execSQL("INSERT INTO " + TABLE_NAME_PLU + "(ID, PLUGROUP_ID, EAN, NAME1, PRICE1, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
+                "VALUES ('1dc3dcaf-30bf-4384-8b66-31dce7d65ced', 'f2112f50-3268-4fe0-afe9-407f761eea23', 100, 'CocaCola', 25 , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
+
     }
 
     public int Guid2Id(String guid, String tableName) {

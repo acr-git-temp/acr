@@ -6,95 +6,95 @@
     <edmx:StorageModels>
     <Schema Namespace="SERDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="SERDModelStoreContainer">
-          <EntitySet Name="HLAVNISKUPINY_PLU" EntityType="SERDModel.Store.HLAVNISKUPINY_PLU" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PLU" EntityType="SERDModel.Store.PLU" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SKUPINY_PLU" EntityType="SERDModel.Store.SKUPINY_PLU" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="plu" EntityType="SERDModel.Store.plu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="plugroup" EntityType="SERDModel.Store.plugroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="plumaingroup" EntityType="SERDModel.Store.plumaingroup" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_PLU_SKUPINY_PLU" Association="SERDModel.Store.FK_PLU_SKUPINY_PLU">
-            <End Role="SKUPINY_PLU" EntitySet="SKUPINY_PLU" />
-            <End Role="PLU" EntitySet="PLU" />
+            <End Role="plugroup" EntitySet="plugroup" />
+            <End Role="plu" EntitySet="plu" />
           </AssociationSet>
           <AssociationSet Name="FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" Association="SERDModel.Store.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU">
-            <End Role="HLAVNISKUPINY_PLU" EntitySet="HLAVNISKUPINY_PLU" />
-            <End Role="SKUPINY_PLU" EntitySet="SKUPINY_PLU" />
+            <End Role="plumaingroup" EntitySet="plumaingroup" />
+            <End Role="plugroup" EntitySet="plugroup" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="HLAVNISKUPINY_PLU">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="nazev" Type="varchar" MaxLength="50" />
-          <Property Name="timestamp" Type="datetime" Nullable="false" />
-          <Property Name="deleted" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PLU">
+        <EntityType Name="plu">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ean" Type="int" Nullable="false" />
-          <Property Name="nazev1" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="nazev2" Type="varchar" MaxLength="50" />
-          <Property Name="nazev3" Type="varchar" MaxLength="50" />
-          <Property Name="cena1" Type="decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="cena2" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="cena3" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="skupina_id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="dph_id" Type="uniqueidentifier" />
-          <Property Name="zs_id" Type="uniqueidentifier" />
+          <Property Name="name1" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="name2" Type="varchar" MaxLength="50" />
+          <Property Name="name3" Type="varchar" MaxLength="50" />
+          <Property Name="price1" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="price2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="price3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="plugroup_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="vat_id" Type="uniqueidentifier" />
+          <Property Name="department_id" Type="uniqueidentifier" />
           <Property Name="text" Type="varchar" MaxLength="255" />
           <Property Name="status1" Type="smallint" />
           <Property Name="status2" Type="smallint" />
-          <Property Name="halo_lalo" Type="int" />
-          <Property Name="link_plu1_id" Type="uniqueidentifier" />
-          <Property Name="link_plu1_pocet" Type="int" />
-          <Property Name="link_plu2_id" Type="uniqueidentifier" />
-          <Property Name="link_plu2_pocet" Type="int" />
-          <Property Name="koeficient" Type="decimal" Precision="4" Scale="2" />
-          <Property Name="objednavka_typ" Type="int" />
-          <Property Name="menu_vol" Type="smallint" />
-          <Property Name="menu_pat" Type="smallint" />
-          <Property Name="stastna_hodina" Type="int" />
-          <Property Name="piktogram_id" Type="uniqueidentifier" />
-          <Property Name="stav" Type="int" />
-          <Property Name="blokace" Type="int" />
-          <Property Name="zdroj_id" Type="uniqueidentifier" />
-          <Property Name="zdroj_cislo" Type="int" />
-          <Property Name="zdroj_sklad" Type="int" />
+          <Property Name="halolalo" Type="int" />
+          <Property Name="linkplu1_id" Type="uniqueidentifier" />
+          <Property Name="linkplu1quantity" Type="int" />
+          <Property Name="linkplu2_id" Type="uniqueidentifier" />
+          <Property Name="linkplu2quantity" Type="int" />
+          <Property Name="coefficient" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="ordertype" Type="int" />
+          <Property Name="menuvol" Type="smallint" />
+          <Property Name="menupat" Type="smallint" />
+          <Property Name="happyhour" Type="int" />
+          <Property Name="pictogram_id" Type="uniqueidentifier" />
+          <Property Name="state" Type="int" />
+          <Property Name="blocked" Type="int" />
+          <Property Name="source_id" Type="uniqueidentifier" />
+          <Property Name="sourcenumstock" Type="int" />
+          <Property Name="sourcestock" Type="int" />
           <Property Name="timestamp" Type="datetime" Nullable="false" />
           <Property Name="deleted" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="SKUPINY_PLU">
+        <EntityType Name="plugroup">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="nazev" Type="varchar" MaxLength="50" />
-          <Property Name="hlavniskupiny_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="plumaingroup_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="timestamp" Type="datetime" Nullable="false" />
+          <Property Name="deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="plumaingroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
           <Property Name="timestamp" Type="datetime" Nullable="false" />
           <Property Name="deleted" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_PLU_SKUPINY_PLU">
-          <End Role="SKUPINY_PLU" Type="SERDModel.Store.SKUPINY_PLU" Multiplicity="1" />
-          <End Role="PLU" Type="SERDModel.Store.PLU" Multiplicity="*" />
+          <End Role="plugroup" Type="SERDModel.Store.plugroup" Multiplicity="1" />
+          <End Role="plu" Type="SERDModel.Store.plu" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SKUPINY_PLU">
+            <Principal Role="plugroup">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="PLU">
-              <PropertyRef Name="skupina_id" />
+            <Dependent Role="plu">
+              <PropertyRef Name="plugroup_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SKUPINY_PLU_HLAVNISKUPINY_PLU">
-          <End Role="HLAVNISKUPINY_PLU" Type="SERDModel.Store.HLAVNISKUPINY_PLU" Multiplicity="1" />
-          <End Role="SKUPINY_PLU" Type="SERDModel.Store.SKUPINY_PLU" Multiplicity="*" />
+          <End Role="plumaingroup" Type="SERDModel.Store.plumaingroup" Multiplicity="1" />
+          <End Role="plugroup" Type="SERDModel.Store.plugroup" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="HLAVNISKUPINY_PLU">
+            <Principal Role="plumaingroup">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="SKUPINY_PLU">
-              <PropertyRef Name="hlavniskupiny_id" />
+            <Dependent Role="plugroup">
+              <PropertyRef Name="plumaingroup_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -103,83 +103,83 @@
     <edmx:ConceptualModels>
       <Schema Namespace="SERDModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
         <EntityContainer Name="SERDEntities">
-          <EntitySet Name="HLAVNISKUPINY_PLU" EntityType="SERDModel.HLAVNISKUPINY_PLU" />
-          <EntitySet Name="PLU" EntityType="SERDModel.PLU" />
-          <EntitySet Name="SKUPINY_PLU" EntityType="SERDModel.SKUPINY_PLU" />
-          <AssociationSet Name="FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" Association="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU">
-            <End Role="HLAVNISKUPINY_PLU" EntitySet="HLAVNISKUPINY_PLU" />
-            <End Role="SKUPINY_PLU" EntitySet="SKUPINY_PLU" />
-          </AssociationSet>
+          <EntitySet Name="Plu" EntityType="SERDModel.plu" />
+          <EntitySet Name="PluGroup" EntityType="SERDModel.plugroup" />
+          <EntitySet Name="PluMainGroup" EntityType="SERDModel.plumaingroup" />
           <AssociationSet Name="FK_PLU_SKUPINY_PLU" Association="SERDModel.FK_PLU_SKUPINY_PLU">
-            <End Role="SKUPINY_PLU" EntitySet="SKUPINY_PLU" />
-            <End Role="PLU" EntitySet="PLU" />
+            <End Role="plugroup" EntitySet="PluGroup" />
+            <End Role="plu" EntitySet="Plu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" Association="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU">
+            <End Role="plumaingroup" EntitySet="PluMainGroup" />
+            <End Role="plugroup" EntitySet="PluGroup" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="HLAVNISKUPINY_PLU">
+        <EntityType Name="plu">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="nazev" Type="String" MaxLength="40" Unicode="true" FixedLength="true" />
-          <Property Name="timestamp" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="SKUPINY_PLU" Relationship="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" FromRole="HLAVNISKUPINY_PLU" ToRole="SKUPINY_PLU" />
+          <Property Type="Guid" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="ean" Nullable="false" />
+          <Property Type="String" Name="name1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name2" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name3" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="price1" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="price2" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="price3" Precision="10" Scale="2" />
+          <Property Type="Guid" Name="vat_id" />
+          <Property Type="Guid" Name="department_id" />
+          <Property Type="String" Name="text" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="status1" />
+          <Property Type="Int16" Name="status2" />
+          <Property Type="Int32" Name="halolalo" />
+          <Property Type="Guid" Name="linkplu1_id" />
+          <Property Type="Guid" Name="linkplu2_id" />
+          <Property Type="Decimal" Name="coefficient" Precision="4" Scale="2" />
+          <Property Type="Int32" Name="ordertype" />
+          <Property Type="Int16" Name="menuvol" />
+          <Property Type="Int16" Name="menupat" />
+          <Property Type="Int32" Name="happyhour" />
+          <Property Type="Guid" Name="pictogram_id" />
+          <Property Type="Int32" Name="state" />
+          <Property Type="Int32" Name="blocked" />
+          <Property Type="Guid" Name="source_id" />
+          <Property Type="Int32" Name="sourcenumstock" />
+          <Property Type="Int32" Name="sourcestock" />
+          <Property Type="DateTime" Name="timestamp" Nullable="false" />
           <Property Type="Boolean" Name="deleted" Nullable="false" />
+          <NavigationProperty Name="plugroup" Relationship="SERDModel.FK_PLU_SKUPINY_PLU" FromRole="plu" ToRole="plugroup" />
+          <Property Type="Int32" Name="linkplu1quantity" />
+          <Property Type="Int32" Name="linkplu2quantity" />
         </EntityType>
-        <EntityType Name="PLU">
+        <EntityType Name="plugroup">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="ean" Type="Int32" Nullable="false" />
-          <Property Name="nazev1" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="true" />
-          <Property Name="nazev2" Type="String" MaxLength="40" Unicode="true" FixedLength="true" />
-          <Property Name="nazev3" Type="String" MaxLength="40" Unicode="true" FixedLength="true" />
-          <Property Name="cena1" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="cena2" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="cena3" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="dph_id" Type="Guid" />
-          <Property Name="zs_id" Type="Guid" />
-          <Property Name="text" Type="String" MaxLength="255" Unicode="true" FixedLength="true" />
-          <Property Name="status1" Type="Int16" />
-          <Property Name="status2" Type="Int16" />
-          <Property Name="halo_lalo" Type="Int32" />
-          <Property Name="link_plu1_id" Type="Guid" />
-          <Property Name="link_plu1_pocet" Type="Int32" />
-          <Property Name="link_plu2_id" Type="Guid" />
-          <Property Name="link_plu2_pocet" Type="Int32" />
-          <Property Name="koeficient" Type="Decimal" Precision="4" Scale="2" />
-          <Property Name="objednavka_typ" Type="Int32" />
-          <Property Name="menu_vol" Type="Int16" />
-          <Property Name="menu_pat" Type="Int16" />
-          <Property Name="stastna_hodina" Type="Int32" />
-          <Property Name="piktogram_id" Type="Guid" />
-          <Property Name="stav" Type="Int32" />
-          <Property Name="blokace" Type="Int32" />
-          <Property Name="zdroj_id" Type="Guid" />
-          <Property Name="zdroj_cislo" Type="Int32" />
-          <Property Name="zdroj_sklad" Type="Int32" />
-          <Property Name="timestamp" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="SKUPINY_PLU" Relationship="SERDModel.FK_PLU_SKUPINY_PLU" FromRole="PLU" ToRole="SKUPINY_PLU" />
+          <Property Type="Guid" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="timestamp" Nullable="false" />
           <Property Type="Boolean" Name="deleted" Nullable="false" />
+          <NavigationProperty Name="plu" Relationship="SERDModel.FK_PLU_SKUPINY_PLU" FromRole="plugroup" ToRole="plu" />
+          <NavigationProperty Name="plumaingroup" Relationship="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" FromRole="plugroup" ToRole="plumaingroup" />
         </EntityType>
-        <EntityType Name="SKUPINY_PLU">
+        <EntityType Name="plumaingroup">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Guid" Nullable="false" />
-          <Property Name="nazev" Type="String" MaxLength="40" Unicode="true" FixedLength="true" />
-          <Property Name="timestamp" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="HLAVNISKUPINY_PLU" Relationship="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" FromRole="SKUPINY_PLU" ToRole="HLAVNISKUPINY_PLU" />
-          <NavigationProperty Name="PLU" Relationship="SERDModel.FK_PLU_SKUPINY_PLU" FromRole="SKUPINY_PLU" ToRole="PLU" />
+          <Property Type="Guid" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="timestamp" Nullable="false" />
           <Property Type="Boolean" Name="deleted" Nullable="false" />
+          <NavigationProperty Name="plugroup" Relationship="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" FromRole="plumaingroup" ToRole="plugroup" />
         </EntityType>
-        <Association Name="FK_SKUPINY_PLU_HLAVNISKUPINY_PLU">
-          <End Role="HLAVNISKUPINY_PLU" Type="SERDModel.HLAVNISKUPINY_PLU" Multiplicity="1" />
-          <End Role="SKUPINY_PLU" Type="SERDModel.SKUPINY_PLU" Multiplicity="*" />
-        </Association>
         <Association Name="FK_PLU_SKUPINY_PLU">
-          <End Role="SKUPINY_PLU" Type="SERDModel.SKUPINY_PLU" Multiplicity="1" />
-          <End Role="PLU" Type="SERDModel.PLU" Multiplicity="*" />
+          <End Type="SERDModel.plugroup" Role="plugroup" Multiplicity="1" />
+          <End Type="SERDModel.plu" Role="plu" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_SKUPINY_PLU_HLAVNISKUPINY_PLU">
+          <End Type="SERDModel.plumaingroup" Role="plumaingroup" Multiplicity="1" />
+          <End Type="SERDModel.plugroup" Role="plugroup" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -187,77 +187,77 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
         <EntityContainerMapping StorageEntityContainer="SERDModelStoreContainer" CdmEntityContainer="SERDEntities">
-          <EntitySetMapping Name="HLAVNISKUPINY_PLU">
-            <EntityTypeMapping TypeName="SERDModel.HLAVNISKUPINY_PLU">
-              <MappingFragment StoreEntitySet="HLAVNISKUPINY_PLU">
+          <EntitySetMapping Name="Plu">
+            <EntityTypeMapping TypeName="SERDModel.plu">
+              <MappingFragment StoreEntitySet="plu">
+                <ScalarProperty Name="linkplu2quantity" ColumnName="linkplu2quantity" />
+                <ScalarProperty Name="linkplu1quantity" ColumnName="linkplu1quantity" />
                 <ScalarProperty Name="deleted" ColumnName="deleted" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nazev" ColumnName="nazev" />
                 <ScalarProperty Name="timestamp" ColumnName="timestamp" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PLU">
-            <EntityTypeMapping TypeName="SERDModel.PLU">
-              <MappingFragment StoreEntitySet="PLU">
-                <ScalarProperty Name="deleted" ColumnName="deleted" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="ean" ColumnName="ean" />
-                <ScalarProperty Name="nazev1" ColumnName="nazev1" />
-                <ScalarProperty Name="nazev2" ColumnName="nazev2" />
-                <ScalarProperty Name="nazev3" ColumnName="nazev3" />
-                <ScalarProperty Name="cena1" ColumnName="cena1" />
-                <ScalarProperty Name="cena2" ColumnName="cena2" />
-                <ScalarProperty Name="cena3" ColumnName="cena3" />
-                <ScalarProperty Name="dph_id" ColumnName="dph_id" />
-                <ScalarProperty Name="zs_id" ColumnName="zs_id" />
-                <ScalarProperty Name="text" ColumnName="text" />
-                <ScalarProperty Name="status1" ColumnName="status1" />
+                <ScalarProperty Name="sourcestock" ColumnName="sourcestock" />
+                <ScalarProperty Name="sourcenumstock" ColumnName="sourcenumstock" />
+                <ScalarProperty Name="source_id" ColumnName="source_id" />
+                <ScalarProperty Name="blocked" ColumnName="blocked" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="pictogram_id" ColumnName="pictogram_id" />
+                <ScalarProperty Name="happyhour" ColumnName="happyhour" />
+                <ScalarProperty Name="menupat" ColumnName="menupat" />
+                <ScalarProperty Name="menuvol" ColumnName="menuvol" />
+                <ScalarProperty Name="ordertype" ColumnName="ordertype" />
+                <ScalarProperty Name="coefficient" ColumnName="coefficient" />
+                <ScalarProperty Name="linkplu2_id" ColumnName="linkplu2_id" />
+                <ScalarProperty Name="linkplu1_id" ColumnName="linkplu1_id" />
+                <ScalarProperty Name="halolalo" ColumnName="halolalo" />
                 <ScalarProperty Name="status2" ColumnName="status2" />
-                <ScalarProperty Name="halo_lalo" ColumnName="halo_lalo" />
-                <ScalarProperty Name="link_plu1_id" ColumnName="link_plu1_id" />
-                <ScalarProperty Name="link_plu1_pocet" ColumnName="link_plu1_pocet" />
-                <ScalarProperty Name="link_plu2_id" ColumnName="link_plu2_id" />
-                <ScalarProperty Name="link_plu2_pocet" ColumnName="link_plu2_pocet" />
-                <ScalarProperty Name="koeficient" ColumnName="koeficient" />
-                <ScalarProperty Name="objednavka_typ" ColumnName="objednavka_typ" />
-                <ScalarProperty Name="menu_vol" ColumnName="menu_vol" />
-                <ScalarProperty Name="menu_pat" ColumnName="menu_pat" />
-                <ScalarProperty Name="stastna_hodina" ColumnName="stastna_hodina" />
-                <ScalarProperty Name="piktogram_id" ColumnName="piktogram_id" />
-                <ScalarProperty Name="stav" ColumnName="stav" />
-                <ScalarProperty Name="blokace" ColumnName="blokace" />
-                <ScalarProperty Name="zdroj_id" ColumnName="zdroj_id" />
-                <ScalarProperty Name="zdroj_cislo" ColumnName="zdroj_cislo" />
-                <ScalarProperty Name="zdroj_sklad" ColumnName="zdroj_sklad" />
-                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SKUPINY_PLU">
-            <EntityTypeMapping TypeName="SERDModel.SKUPINY_PLU">
-              <MappingFragment StoreEntitySet="SKUPINY_PLU">
-                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="status1" ColumnName="status1" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="vat_id" ColumnName="vat_id" />
+                <ScalarProperty Name="price3" ColumnName="price3" />
+                <ScalarProperty Name="price2" ColumnName="price2" />
+                <ScalarProperty Name="price1" ColumnName="price1" />
+                <ScalarProperty Name="name3" ColumnName="name3" />
+                <ScalarProperty Name="name2" ColumnName="name2" />
+                <ScalarProperty Name="name1" ColumnName="name1" />
+                <ScalarProperty Name="ean" ColumnName="ean" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nazev" ColumnName="nazev" />
-                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" TypeName="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" StoreEntitySet="SKUPINY_PLU">
-            <EndProperty Name="HLAVNISKUPINY_PLU">
-              <ScalarProperty Name="id" ColumnName="hlavniskupiny_id" />
-            </EndProperty>
-            <EndProperty Name="SKUPINY_PLU">
+          <EntitySetMapping Name="PluGroup">
+            <EntityTypeMapping TypeName="SERDModel.plugroup">
+              <MappingFragment StoreEntitySet="plugroup">
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PluMainGroup">
+            <EntityTypeMapping TypeName="SERDModel.plumaingroup">
+              <MappingFragment StoreEntitySet="plumaingroup">
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_PLU_SKUPINY_PLU" TypeName="SERDModel.FK_PLU_SKUPINY_PLU" StoreEntitySet="plu">
+            <EndProperty Name="plu">
               <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <EndProperty Name="plugroup">
+              <ScalarProperty Name="id" ColumnName="plugroup_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_PLU_SKUPINY_PLU" TypeName="SERDModel.FK_PLU_SKUPINY_PLU" StoreEntitySet="PLU">
-            <EndProperty Name="SKUPINY_PLU">
-              <ScalarProperty Name="id" ColumnName="skupina_id" />
-            </EndProperty>
-            <EndProperty Name="PLU">
+          <AssociationSetMapping Name="FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" TypeName="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" StoreEntitySet="plugroup">
+            <EndProperty Name="plugroup">
               <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <EndProperty Name="plumaingroup">
+              <ScalarProperty Name="id" ColumnName="plumaingroup_id" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
@@ -280,17 +280,17 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Model1">
-        <EntityTypeShape EntityType="SERDModel.HLAVNISKUPINY_PLU" Width="1.5" PointX="0.75" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="SERDModel.PLU" Width="1.5" PointX="5.25" PointY="1.125" Height="6.9801236979166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="SERDModel.SKUPINY_PLU" Width="1.5" PointX="3" PointY="3.625" Height="1.9802864583333331" IsExpanded="true" />
-        <AssociationConnector Association="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.6439925130208337" />
-          <ConnectorPoint PointX="3" PointY="4.6439925130208337" />
+      <Diagram Name="Model1" ZoomLevel="78">
+        <EntityTypeShape EntityType="SERDModel.plu" Width="1.5" PointX="5.25" PointY="1.125" Height="7.1724251302083335" />
+        <EntityTypeShape EntityType="SERDModel.plugroup" Width="1.5" PointX="3" PointY="3.625" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="SERDModel.plumaingroup" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333317" />
+        <AssociationConnector Association="SERDModel.FK_PLU_SKUPINY_PLU" >
+          <ConnectorPoint PointX="4.5" PointY="4.7112939453125" />
+          <ConnectorPoint PointX="5.25" PointY="4.7112939453125" />
         </AssociationConnector>
-        <AssociationConnector Association="SERDModel.FK_PLU_SKUPINY_PLU" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.6151432291666667" />
-          <ConnectorPoint PointX="5.25" PointY="4.6151432291666667" />
+        <AssociationConnector Association="SERDModel.FK_SKUPINY_PLU_HLAVNISKUPINY_PLU" >
+          <ConnectorPoint PointX="2.25" PointY="4.7401432291666659" />
+          <ConnectorPoint PointX="3" PointY="4.7401432291666659" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

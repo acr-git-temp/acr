@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.serd.cashregister.app.R;
-
 public class PLUMainGroupEditActivity extends ActionBarActivity {
 
     private Uri mUri;
@@ -28,7 +26,7 @@ public class PLUMainGroupEditActivity extends ActionBarActivity {
     private static final int STATE_EDIT = 0;
     private static final int STATE_INSERT = 1;
 
-    private static final String[] PROJECTION = new String[] { ".id", "ID", "TITLE", "DELETED" };
+    private static final String[] PROJECTION = new String[] { ".id", "ID", "NAME", "DELETED" };
 
 
     @Override
@@ -63,7 +61,7 @@ public class PLUMainGroupEditActivity extends ActionBarActivity {
 
     public void okButtonClicked(View theButton){
         ContentValues values = new ContentValues();
-        values.put("TITLE", title.getText().toString());
+        values.put("NAME", title.getText().toString());
         values.put("DELETED", checkBoxDeleted.isChecked()?1:0);
 
         if (mState==STATE_EDIT) {

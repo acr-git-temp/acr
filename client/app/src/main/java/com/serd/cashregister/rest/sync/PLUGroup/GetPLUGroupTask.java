@@ -29,7 +29,7 @@ public class GetPLUGroupTask extends ISynchronizerTask implements GetTemplate.Li
 
     GetPLUGroupTask(Synchronizer pSynchronizer) {
         mSynchronizer = pSynchronizer;
-        mTaskObject = new GetTemplate<PLUGroups>(PLUGroups.class, TaskSettings.baseurl + "SKUPINY_PLU/");
+        mTaskObject = new GetTemplate<PLUGroups>(PLUGroups.class, TaskSettings.baseurl + "PluGroup/");
         mTaskObject.registerListener(this);
     }
 
@@ -47,7 +47,7 @@ public class GetPLUGroupTask extends ISynchronizerTask implements GetTemplate.Li
             if (id < 0) {
                 //item does not exist yet
                 values.put("ID", pluGroup.getId());
-                values.put("TITLE", pluGroup.getContent());
+                values.put("NAME", pluGroup.getContent());
                 values.put("SERVERTIMESTAMP", pluGroup.getTimestamp().replace('T', ' '));
                 values.put("CLIENTTIMESTAMP", pluGroup.getTimestamp().replace('T', ' '));
                 values.put("PLUMAINGROUP_ID", pluGroup.getPLUMainGroupId());
@@ -56,7 +56,7 @@ public class GetPLUGroupTask extends ISynchronizerTask implements GetTemplate.Li
             }
             else {
                 //item already exists
-                values.put("TITLE", pluGroup.getContent());
+                values.put("NAME", pluGroup.getContent());
                 values.put("SERVERTIMESTAMP", pluGroup.getTimestamp().replace('T', ' '));
                 values.put("CLIENTTIMESTAMP", pluGroup.getTimestamp().replace('T', ' '));
                 values.put("PLUMAINGROUP_ID", pluGroup.getPLUMainGroupId());

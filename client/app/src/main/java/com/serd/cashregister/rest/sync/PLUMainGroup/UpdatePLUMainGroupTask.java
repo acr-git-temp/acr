@@ -51,7 +51,7 @@ public class UpdatePLUMainGroupTask extends ISynchronizerTask implements UpdateT
 
     UpdatePLUMainGroupTask(Synchronizer pSynchronizer, PLUMainGroup pData ) {
         mSynchronizer = pSynchronizer;
-        mTaskObject = new UpdateTemplate<PLUMainGroup>(PLUMainGroup.class, TaskSettings.baseurl + "HLAVNISKUPINY_PLU/", pData);
+        mTaskObject = new UpdateTemplate<PLUMainGroup>(PLUMainGroup.class, TaskSettings.baseurl + "PluMainGroup/", pData);
         mTaskObject.registerListener(this);
     }
 

@@ -290,7 +290,7 @@ public class PluMainGroupProvider extends ContentProvider {
         sPluMainGroupProjectionMap = new HashMap<String, String>();
         sPluMainGroupProjectionMap.put("_id", "_id");
         sPluMainGroupProjectionMap.put("ID", "ID");
-        sPluMainGroupProjectionMap.put("TITLE", "TITLE");
+        sPluMainGroupProjectionMap.put("NAME", "NAME");
         sPluMainGroupProjectionMap.put("SERVERTIMESTAMP", "SERVERTIMESTAMP");
         sPluMainGroupProjectionMap.put("CLIENTTIMESTAMP", "CLIENTTIMESTAMP");
         sPluMainGroupProjectionMap.put("DELETED", "DELETED");
