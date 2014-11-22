@@ -5,7 +5,7 @@ android {
     buildToolsVersion "20.0.0"
 
     defaultConfig {
-        applicationId "som.serd.cashregister.androidcashregisterapplication"
+        applicationId "com.serd.cashregister.androidcashregisterapplication"
         minSdkVersion 10
         targetSdkVersion 21
         versionCode 1
