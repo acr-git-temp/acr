@@ -83,6 +83,13 @@
             android:exported="true" >
         </provider>
 
+        <provider
+            android:name="com.serd.cashregister.providers.PluProvider"
+            android:authorities="com.serd.cashregister.PluProvider"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.serd.cashregister.app.R;
 import com.serd.cashregister.db.DBHelper;
+import com.serd.cashregister.rest.sync.PLU.GetPLUTask;
 import com.serd.cashregister.rest.sync.PLUGroup.GetPLUGroupTask;
 import com.serd.cashregister.rest.sync.PLUGroup.InsertPLUGroupTask;
 import com.serd.cashregister.rest.sync.PLUGroup.UpdatePLUGroupTask;
@@ -46,12 +47,14 @@ public class Synchronizer
         //collect tasks to do
         //DeletePLUMainGroupItems();
         //DeletePLUGroupItems();
+
         InsertPLUMainGroupTask.prepare(this);
         InsertPLUGroupTask.prepare(this);
         UpdatePLUMainGroupTask.prepare(this);
         UpdatePLUGroupTask.prepare(this);
         GetPLUMainGroupTask.prepare(this);
         GetPLUGroupTask.prepare(this);
+        GetPLUTask.prepare(this);
 
         //start queue processing
         processQueue();
