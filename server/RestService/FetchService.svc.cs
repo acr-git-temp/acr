@@ -19,20 +19,20 @@ namespace RestService
 
         public String Debug(String s)
         {
-            Console.WriteLine(s);
-            return "abc";
+            Console.WriteLine(DateTime.Now.ToString() + " " + s);
+            return s;
         }
 
-        DateTime GetHLAVNISKUPINY_PLUTimestamp(Guid id)
+        /*DateTime GetPluMainGroupTimestamp(Guid id)
         {
             SERDEntities context = new SERDEntities();
             plumaingroup obj = context.PluMainGroup.Where(s => s.id == id).FirstOrDefault<plumaingroup>();
             return obj.timestamp;
-        }
+        }*/
 
-        public List<DCPluMainGroup> GetHLAVNISKUPINY_PLU()
+        public List<DCPluMainGroup> GetPluMainGroup()
         {
-            Console.WriteLine(DateTime.Now.ToString() + " Get PluMainGroup");
+            Debug("Get PluMainGroup");
 
             using (var context = new SERDEntities())
             {
@@ -48,9 +48,9 @@ namespace RestService
             }
         }
 
-        public DCPluMainGroup InsertHLAVNISKUPINY_PLU(DCPluMainGroup src)
+        public DCPluMainGroup InsertPluMainGroup(DCPluMainGroup src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
+            Debug(builder.AppendFormat("Insert PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
 
             plumaingroup obj;
             {
@@ -73,9 +73,9 @@ namespace RestService
             return src;
         }
 
-        public DCPluMainGroup UpdateHLAVNISKUPINY_PLU(DCPluMainGroup src)
+        public DCPluMainGroup UpdatePluMainGroup(DCPluMainGroup src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
+            Debug(builder.AppendFormat("Update PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
 
             plumaingroup obj;
             using (var context = new SERDEntities())
@@ -110,7 +110,7 @@ namespace RestService
             return src;
         }
 
-        public DCPluMainGroup DeleteHLAVNISKUPINY_PLU(string id)
+        public DCPluMainGroup DeletePluMainGroup(string id)
         {
             DCPluMainGroup result = new DCPluMainGroup();
 
@@ -121,7 +121,7 @@ namespace RestService
                 obj = context.PluMainGroup.Where(s => s.id == idAsGuid).FirstOrDefault<plumaingroup>();
                 if (obj != null)
                 {
-                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", obj.id.ToString(), obj.name).ToString());
+                    Debug(builder.AppendFormat("Delete PluMainGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", obj.id.ToString(), obj.name).ToString());
 
 #if (!DO_NOT_UPDATE_DATABASE) 
                     context.DeleteObject(obj);
@@ -135,16 +135,16 @@ namespace RestService
             return result;
         }
 
-        DateTime GetSKUPINY_PLUTimestamp(Guid id)
+        /*DateTime GetPluGroupTimestamp(Guid id)
         {
             SERDEntities context = new SERDEntities();
             plugroup obj = context.PluGroup.Where(s => s.id == id).FirstOrDefault<plugroup>();
             return obj.timestamp;
-        }
+        }*/
 
-        public List<DCPluGroup> GetSKUPINY_PLU()
+        public List<DCPluGroup> GetPluGroup()
         {
-            Console.WriteLine(DateTime.Now.ToString() + " Get PluGroup");
+            Debug("Get PluGroup");
 
             using (var context = new SERDEntities())
             {
@@ -161,9 +161,9 @@ namespace RestService
             }
         }
 
-        public DCPluGroup InsertSKUPINY_PLUx(DCPluGroup src)
+        public DCPluGroup InsertPluGroup(DCPluGroup src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
+            Debug(builder.AppendFormat("Insert PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
 
             plugroup obj;
             {
@@ -187,9 +187,9 @@ namespace RestService
             return src;
         }
 
-        public DCPluGroup UpdateSKUPINY_PLUx(DCPluGroup src)
+        public DCPluGroup UpdatePluGroup(DCPluGroup src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
+            Debug(builder.AppendFormat("Update PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", src.id.ToString(), src.name).ToString());
 
             plugroup obj;
             using (var context = new SERDEntities())
@@ -227,7 +227,7 @@ namespace RestService
             return src;
         }
 
-        public DCPluGroup DeleteSKUPINY_PLUx(string id)
+        public DCPluGroup DeletePluGroup(string id)
         {
             DCPluGroup result = new DCPluGroup();
 
@@ -238,7 +238,7 @@ namespace RestService
                 obj = context.PluGroup.Where(s => s.id == idAsGuid).FirstOrDefault<plugroup>();
                 if (obj != null)
                 {
-                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", obj.id.ToString(), obj.name).ToString());
+                    Debug(builder.AppendFormat("Delete PluGroup\n\t\t\tID: {0}\n\t\t\tTitle: {1}", obj.id.ToString(), obj.name).ToString());
 
 #if (!DO_NOT_UPDATE_DATABASE)
                     context.DeleteObject(obj);
@@ -252,16 +252,16 @@ namespace RestService
             return result;
         }
 
-        DateTime GetPLUTimestamp(Guid id)
+        /*DateTime GetPluTimestamp(Guid id)
         {
             SERDEntities context = new SERDEntities();
             plu obj = context.Plu.Where(s => s.id == id).FirstOrDefault<plu>();
             return obj.timestamp;
-        }
+        }*/
 
-        public List<DCPlu> GetPLUs()
+        public List<DCPlu> GetPlu()
         {
-            Console.WriteLine(DateTime.Now.ToString() + " Get Plu");
+            Debug("Get Plu");
 
             using (var context = new SERDEntities())
             {
@@ -284,9 +284,9 @@ namespace RestService
             }
         }
 
-        public DCPlu InsertPLUx(DCPlu src)
+        public DCPlu InsertPlu(DCPlu src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Insert Plu\n\tID: {0}\n\tTitle: {1}", src.id.ToString(), src.name1).ToString());
+            Debug(builder.AppendFormat("Insert Plu\n\tID: {0}\n\tTitle: {1}", src.id.ToString(), src.name1).ToString());
             
             plu obj;
             {
@@ -317,9 +317,9 @@ namespace RestService
             return src;
         }
 
-        public DCPlu UpdatePLUx(DCPlu src)
+        public DCPlu UpdatePlu(DCPlu src)
         {
-            Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Update Plu\n\tID: {0}\n\tTitle: {1}", src.id.ToString(), src.name1).ToString());
+            Debug(builder.AppendFormat("Update Plu\n\tID: {0}\n\tTitle: {1}", src.id.ToString(), src.name1).ToString());
 
             plu obj;
             using (var context = new SERDEntities())
@@ -346,7 +346,7 @@ namespace RestService
             return src;
         }
 
-        public DCPlu DeletePLUx(string id)
+        public DCPlu DeletePlu(string id)
         {
             DCPlu result = new DCPlu();
 
@@ -357,7 +357,7 @@ namespace RestService
                 obj = context.Plu.Where(s => s.id == idAsGuid).FirstOrDefault<plu>();
                 if (obj != null)
                 {
-                    Console.WriteLine(DateTime.Now.ToString() + builder.AppendFormat(" Delete Plu\n\tID: {0}\n\tTitle: {1}", obj.id.ToString(), obj.name1).ToString());
+                    Debug(builder.AppendFormat("Delete Plu\n\tID: {0}\n\tTitle: {1}", obj.id.ToString(), obj.name1).ToString());
 
 #if (!DO_NOT_UPDATE_DATABASE)
                     context.DeleteObject(obj);

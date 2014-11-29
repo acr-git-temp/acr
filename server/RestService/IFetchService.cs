@@ -8,99 +8,102 @@ using System.Text;
 
 namespace RestService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    //**************************************************************************************************
+    //**  SERVICE CONTRACTS                                                                              **
+    //**************************************************************************************************
+
     [ServiceContract]
     public interface IFetchService
     {
-        [OperationContract]
-        [WebInvoke(Method = "POST",
-            UriTemplate = "DEBUG/")]
-        String Debug(String s);
-        
         // plumaingroup
         //-------------------------------------------------------------------------------------------------
         [OperationContract]
         [WebGet(UriTemplate = "plumaingroup/")]
-        List<DCPluMainGroup> GetHLAVNISKUPINY_PLU();
+        List<DCPluMainGroup> GetPluMainGroup();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plumaingroup/")]
-        DCPluMainGroup InsertHLAVNISKUPINY_PLU(DCPluMainGroup plu);
+        DCPluMainGroup InsertPluMainGroup(DCPluMainGroup plu);
         
         [OperationContract]
         [WebInvoke(Method = "PUT",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plumaingroup/")]
-        DCPluMainGroup UpdateHLAVNISKUPINY_PLU(DCPluMainGroup plu);
+        DCPluMainGroup UpdatePluMainGroup(DCPluMainGroup plu);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plumaingroup/{id}")]
-        DCPluMainGroup DeleteHLAVNISKUPINY_PLU(string id);
+        DCPluMainGroup DeletePluMainGroup(string id);
 
-        // SKUPINY_PLU
+        // plugroup
         //-------------------------------------------------------------------------------------------------
         [OperationContract]
         [WebGet(UriTemplate = "plugroup/")]
-        List<DCPluGroup> GetSKUPINY_PLU();
+        List<DCPluGroup> GetPluGroup();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plugroup/")]
-        DCPluGroup InsertSKUPINY_PLUx(DCPluGroup plu);
+        DCPluGroup InsertPluGroup(DCPluGroup plu);
 
         [OperationContract]
         [WebInvoke(Method = "PUT",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plugroup/")]
-        DCPluGroup UpdateSKUPINY_PLUx(DCPluGroup plu);
+        DCPluGroup UpdatePluGroup(DCPluGroup plu);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plugroup/{id}")]
-        DCPluGroup DeleteSKUPINY_PLUx(string id);
+        DCPluGroup DeletePluGroup(string id);
 
-        // PLU
+        // plu
         //-------------------------------------------------------------------------------------------------
         [OperationContract]
         [WebGet(UriTemplate = "plu/")]
-        List<DCPlu> GetPLUs();
+        List<DCPlu> GetPlu();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plu/")]
-        DCPlu InsertPLUx(DCPlu plu);
+        DCPlu InsertPlu(DCPlu plu);
 
         [OperationContract]
         [WebInvoke(Method = "PUT",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plu/")]
-        DCPlu UpdatePLUx(DCPlu plu);
+        DCPlu UpdatePlu(DCPlu plu);
 
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "plu/{id}")]
-
-        DCPlu DeletePLUx(string id);
+        DCPlu DeletePlu(string id);
     }
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
+
+    //**************************************************************************************************
+    //**  DATA CONTRACTS                                                                              **
+    //**************************************************************************************************
+
+    // DCPluMainGroup
+    //-------------------------------------------------------------------------------------------------
     [DataContract(Namespace = "", Name = "PluMainGroup")]
     public class DCPluMainGroup
     {
@@ -114,6 +117,8 @@ namespace RestService
         public Boolean deleted { get; set; }
     }
 
+    // DCPluGroup
+    //-------------------------------------------------------------------------------------------------
     [DataContract(Namespace = "", Name = "PluGroup")]
     public class DCPluGroup
     {
@@ -129,7 +134,9 @@ namespace RestService
         public Boolean deleted { get; set; }
     }
 
-     [DataContract(Namespace = "", Name = "Plu")]
+    // DCPlu
+    //-------------------------------------------------------------------------------------------------
+    [DataContract(Namespace = "", Name = "Plu")]
     public class DCPlu
     {
         [DataMember]
