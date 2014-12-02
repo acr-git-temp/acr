@@ -11,7 +11,7 @@ import com.serd.cashregister.rest.data.PLUGroups;
 import com.serd.cashregister.rest.sync.ISynchronizerTask;
 import com.serd.cashregister.rest.sync.Synchronizer;
 import com.serd.cashregister.rest.generics.GetTemplate;
-import com.serd.cashregister.rest.generics.TaskSettings;
+import com.serd.cashregister.rest.sync.TaskSettings;
 
 import java.util.Iterator;
 
@@ -31,6 +31,7 @@ public class GetPLUGroupTask extends ISynchronizerTask implements GetTemplate.Li
         mSynchronizer = pSynchronizer;
         mTaskObject = new GetTemplate<PLUGroups>(PLUGroups.class, TaskSettings.baseurl + "PluGroup/");
         mTaskObject.registerListener(this);
+        mTaskObject.registerErrorHandler(pSynchronizer);
     }
 
     public GetTemplate<PLUGroups> mTaskObject;

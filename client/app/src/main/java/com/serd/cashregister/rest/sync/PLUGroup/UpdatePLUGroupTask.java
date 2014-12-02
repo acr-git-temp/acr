@@ -13,7 +13,7 @@ import com.serd.cashregister.providers.PluGroupProvider;
 import com.serd.cashregister.rest.data.PLUGroup;
 import com.serd.cashregister.rest.sync.ISynchronizerTask;
 import com.serd.cashregister.rest.sync.Synchronizer;
-import com.serd.cashregister.rest.generics.TaskSettings;
+import com.serd.cashregister.rest.sync.TaskSettings;
 import com.serd.cashregister.rest.generics.UpdateTemplate;
 
 public class UpdatePLUGroupTask extends ISynchronizerTask implements UpdateTemplate.Listener<PLUGroup> {
@@ -53,6 +53,7 @@ public class UpdatePLUGroupTask extends ISynchronizerTask implements UpdateTempl
         mSynchronizer = pSynchronizer;
         mTaskObject = new UpdateTemplate<PLUGroup>(PLUGroup.class, TaskSettings.baseurl + "PluGroup/", pData);
         mTaskObject.registerListener(this);
+        mTaskObject.registerErrorHandler(pSynchronizer);
     }
 
     public UpdateTemplate<PLUGroup> mTaskObject;

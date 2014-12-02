@@ -9,7 +9,7 @@ import com.serd.cashregister.providers.PluProvider;
 import com.serd.cashregister.rest.data.PLU;
 import com.serd.cashregister.rest.data.PLUs;
 import com.serd.cashregister.rest.generics.GetTemplate;
-import com.serd.cashregister.rest.generics.TaskSettings;
+import com.serd.cashregister.rest.sync.TaskSettings;
 import com.serd.cashregister.rest.sync.ISynchronizerTask;
 import com.serd.cashregister.rest.sync.Synchronizer;
 
@@ -31,6 +31,7 @@ public class GetPLUTask extends ISynchronizerTask implements GetTemplate.Listene
         mSynchronizer = pSynchronizer;
         mTaskObject = new GetTemplate<PLUs>(PLUs.class, TaskSettings.baseurl + "Plu/");
         mTaskObject.registerListener(this);
+        mTaskObject.registerErrorHandler(pSynchronizer);
     }
 
     public GetTemplate<PLUs> mTaskObject;

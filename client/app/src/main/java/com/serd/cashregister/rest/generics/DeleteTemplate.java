@@ -1,7 +1,9 @@
 package com.serd.cashregister.rest.generics;
 
 import android.os.AsyncTask;
-import android.util.Log;
+
+import com.serd.cashregister.rest.sync.IErrorHandler;
+import com.serd.cashregister.rest.sync.SerdRestTemplate;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -9,10 +11,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.xml.SimpleXmlHttpMessageConverter;
 import org.springframework.web.client.ResponseErrorHandler;
-import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +46,8 @@ public class DeleteTemplate<T> extends AsyncTask<Void, Void, T> {
     final Class<T> typeParameterClass;
     private List<Listener> mListeners = new ArrayList<Listener>();
     private String mUrl;
+    private String mError;
+    private IErrorHandler mErrorHandler;
     T mData;
     String mId;
 
@@ -62,6 +64,11 @@ public class DeleteTemplate<T> extends AsyncTask<Void, Void, T> {
         mListeners.add(listener);
     }
 
+    public void registerErrorHandler(IErrorHandler errorHandler)
+    {
+        mErrorHandler = errorHandler;
+    }
+
     @Override
     protected T doInBackground(Void... params) {
         T result = null;
@@ -73,7 +80,7 @@ public class DeleteTemplate<T> extends AsyncTask<Void, Void, T> {
             HttpEntity<T> requestEntity = new HttpEntity<T>(mData, requestHeaders);
 
             // Create a new RestTemplate instance
-            RestTemplate restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory());
+            SerdRestTemplate restTemplate = new SerdRestTemplate(); //new HttpComponentsClientHttpRequestFactory());
 
             // Add the Jackson and String message converters
             restTemplate.getMessageConverters().add(new SimpleXmlHttpMessageConverter());
@@ -87,7 +94,8 @@ public class DeleteTemplate<T> extends AsyncTask<Void, Void, T> {
             ResponseEntity<T> responseEntity = restTemplate.exchange(objectUrl.toString(), HttpMethod.DELETE, requestEntity, typeParameterClass);
             result = responseEntity.getBody();
         } catch (Exception e) {
-            Log.e("MainActivity", e.getMessage(), e);
+            mError = e.getMessage();
+            //Log.e("MainActivity", e.getMessage(), e);
         }
 
         return result;
@@ -95,8 +103,13 @@ public class DeleteTemplate<T> extends AsyncTask<Void, Void, T> {
 
     @Override
     protected void onPostExecute(T object) {
-        for (Listener listener : mListeners) {
-            listener.onDeleteResponse(object);
+        if (object == null) {
+            mErrorHandler.onError(mError);
+        }
+        else {
+            for (Listener listener : mListeners) {
+                listener.onDeleteResponse(object);
+            }
         }
     }
 }

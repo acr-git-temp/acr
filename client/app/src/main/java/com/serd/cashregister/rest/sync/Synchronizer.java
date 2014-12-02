@@ -19,7 +19,7 @@ import java.util.Queue;
 /**
  * Created by Tomas on 15. 11. 2014.
  */
-public class Synchronizer
+public class Synchronizer implements IErrorHandler
 {
 
     public static final String TAG = "Synchronizer";
@@ -85,5 +85,10 @@ public class Synchronizer
         }
 
         task.execute();
+    }
+
+    public void onError(String e)
+    {
+        Toast.makeText(getContext(), e, Toast.LENGTH_LONG).show();
     }
 }

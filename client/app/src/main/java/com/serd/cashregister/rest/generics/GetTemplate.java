@@ -1,10 +1,11 @@
 package com.serd.cashregister.rest.generics;
 
 import android.os.AsyncTask;
-import android.util.Log;
+
+import com.serd.cashregister.rest.sync.IErrorHandler;
+import com.serd.cashregister.rest.sync.SerdRestTemplate;
 
 import org.springframework.http.converter.xml.SimpleXmlHttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,8 @@ public class GetTemplate<T> extends AsyncTask<Void, Void, T> {
     final Class<T> typeParameterClass;
     private List<Listener> mListeners = new ArrayList<Listener>();
     private String mUrl;
+    private String mError;
+    private IErrorHandler mErrorHandler;
 
     public GetTemplate(Class<T> typeParameterClass, String url)
     {
@@ -30,26 +33,37 @@ public class GetTemplate<T> extends AsyncTask<Void, Void, T> {
         mListeners.add(listener);
     }
 
-    @Override
-    protected T doInBackground(Void... params) {
-        try {
-            //final String url = "http://tomas.frankl.sweb.cz/rests2.xml";
-            RestTemplate restTemplate = new RestTemplate();
-            SimpleXmlHttpMessageConverter converter = new SimpleXmlHttpMessageConverter();
-            restTemplate.getMessageConverters().add(converter);
-            T pluGroups = restTemplate.getForObject(mUrl, typeParameterClass);
-            return pluGroups;
-        } catch (Exception e) {
-            Log.e("MainActivity", e.getMessage(), e);
-        }
-
-        return null;
+    public void registerErrorHandler(IErrorHandler errorHandler)
+    {
+        mErrorHandler = errorHandler;
     }
 
     @Override
-    protected void onPostExecute(T pluGroups) {
-        for (Listener listener : mListeners) {
-            listener.onGetResponse(pluGroups);
+    protected T doInBackground(Void... params) {
+        T result = null;
+        try {
+            //final String url = "http://tomas.frankl.sweb.cz/rests2.xml";
+            SerdRestTemplate restTemplate = new SerdRestTemplate();
+            SimpleXmlHttpMessageConverter converter = new SimpleXmlHttpMessageConverter();
+            restTemplate.getMessageConverters().add(converter);
+            result = restTemplate.getForObject(mUrl, typeParameterClass);
+            return result;
+        } catch (Exception e) {
+            mError = e.getMessage();
+            //Log.e("MainActivity", e.getMessage(), e);
+        }
+        return result;
+    }
+
+    @Override
+    protected void onPostExecute(T object) {
+        if (object == null) {
+            mErrorHandler.onError(mError);
+        }
+        else {
+            for (Listener listener : mListeners) {
+                listener.onGetResponse(object);
+            }
         }
     }
 }

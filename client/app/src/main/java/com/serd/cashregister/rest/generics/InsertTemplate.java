@@ -1,7 +1,9 @@
 package com.serd.cashregister.rest.generics;
 
 import android.os.AsyncTask;
-import android.util.Log;
+
+import com.serd.cashregister.rest.sync.IErrorHandler;
+import com.serd.cashregister.rest.sync.SerdRestTemplate;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -11,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.converter.xml.SimpleXmlHttpMessageConverter;
 import org.springframework.web.client.ResponseErrorHandler;
-import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,6 +46,8 @@ public class InsertTemplate<T> extends AsyncTask<Void, Void, T> {
     final Class<T> typeParameterClass;
     private List<Listener> mListeners = new ArrayList<Listener>();
     private String mUrl;
+    private String mError;
+    private IErrorHandler mErrorHandler;
     T mData;
 
     public InsertTemplate(Class<T> typeParameterClass, String url, T pData)
@@ -59,6 +62,11 @@ public class InsertTemplate<T> extends AsyncTask<Void, Void, T> {
         mListeners.add(listener);
     }
 
+    public void registerErrorHandler(IErrorHandler errorHandler)
+    {
+        mErrorHandler = errorHandler;
+    }
+
     @Override
     protected T doInBackground(Void... params) {
         T result = null;
@@ -69,7 +77,7 @@ public class InsertTemplate<T> extends AsyncTask<Void, Void, T> {
             HttpEntity<T> requestEntity = new HttpEntity<T>(mData, requestHeaders);
 
             // Create a new RestTemplate instance
-            RestTemplate restTemplate = new RestTemplate();
+            SerdRestTemplate restTemplate = new SerdRestTemplate();
 
             // Add the Jackson and String message converters
             restTemplate.getMessageConverters().add(new SimpleXmlHttpMessageConverter());
@@ -80,7 +88,8 @@ public class InsertTemplate<T> extends AsyncTask<Void, Void, T> {
             ResponseEntity<T> responseEntity = restTemplate.exchange(mUrl, HttpMethod.POST, requestEntity, typeParameterClass);
             result = responseEntity.getBody();
         } catch (Exception e) {
-            Log.e("MainActivity", e.getMessage(), e);
+            mError = e.getMessage();
+            //Log.e("MainActivity", e.getMessage(), e);
         }
 
         return result;
@@ -88,8 +97,13 @@ public class InsertTemplate<T> extends AsyncTask<Void, Void, T> {
 
     @Override
     protected void onPostExecute(T object) {
-        for (Listener listener : mListeners) {
-            listener.onInsertResponse(object);
+        if (object == null) {
+            mErrorHandler.onError(mError);
+        }
+        else {
+            for (Listener listener : mListeners) {
+                listener.onInsertResponse(object);
+            }
         }
     }
 }

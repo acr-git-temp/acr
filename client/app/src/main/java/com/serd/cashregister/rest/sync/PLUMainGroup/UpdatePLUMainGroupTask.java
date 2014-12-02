@@ -13,7 +13,7 @@ import com.serd.cashregister.providers.PluMainGroupProvider;
 import com.serd.cashregister.rest.data.PLUMainGroup;
 import com.serd.cashregister.rest.sync.ISynchronizerTask;
 import com.serd.cashregister.rest.sync.Synchronizer;
-import com.serd.cashregister.rest.generics.TaskSettings;
+import com.serd.cashregister.rest.sync.TaskSettings;
 import com.serd.cashregister.rest.generics.UpdateTemplate;
 
 public class UpdatePLUMainGroupTask extends ISynchronizerTask implements UpdateTemplate.Listener<PLUMainGroup> {
@@ -53,6 +53,7 @@ public class UpdatePLUMainGroupTask extends ISynchronizerTask implements UpdateT
         mSynchronizer = pSynchronizer;
         mTaskObject = new UpdateTemplate<PLUMainGroup>(PLUMainGroup.class, TaskSettings.baseurl + "PluMainGroup/", pData);
         mTaskObject.registerListener(this);
+        mTaskObject.registerErrorHandler(pSynchronizer);
     }
 
     public UpdateTemplate<PLUMainGroup> mTaskObject;

@@ -14,7 +14,7 @@ import com.serd.cashregister.rest.data.PLUGroup;
 import com.serd.cashregister.rest.sync.ISynchronizerTask;
 import com.serd.cashregister.rest.sync.Synchronizer;
 import com.serd.cashregister.rest.generics.DeleteTemplate;
-import com.serd.cashregister.rest.generics.TaskSettings;
+import com.serd.cashregister.rest.sync.TaskSettings;
 
 public class DeletePLUGroupTask extends ISynchronizerTask implements DeleteTemplate.Listener<PLUGroup> {
     public static final String TAG = "DeletePLUGroupTask";
@@ -53,6 +53,7 @@ public class DeletePLUGroupTask extends ISynchronizerTask implements DeleteTempl
         mSynchronizer = pSynchronizer;
         mTaskObject = new DeleteTemplate<PLUGroup>(PLUGroup.class, TaskSettings.baseurl + "PluGroup/", pData, pId);
         mTaskObject.registerListener(this);
+        mTaskObject.registerErrorHandler(pSynchronizer);
     }
 
     public DeleteTemplate<PLUGroup> mTaskObject;

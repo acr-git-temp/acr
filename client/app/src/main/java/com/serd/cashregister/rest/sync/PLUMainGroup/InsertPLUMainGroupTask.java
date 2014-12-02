@@ -14,7 +14,7 @@ import com.serd.cashregister.rest.data.PLUMainGroup;
 import com.serd.cashregister.rest.sync.ISynchronizerTask;
 import com.serd.cashregister.rest.sync.Synchronizer;
 import com.serd.cashregister.rest.generics.InsertTemplate;
-import com.serd.cashregister.rest.generics.TaskSettings;
+import com.serd.cashregister.rest.sync.TaskSettings;
 
 public class InsertPLUMainGroupTask extends ISynchronizerTask implements InsertTemplate.Listener<PLUMainGroup> {
     public static final String TAG = "InsertPLUMainGroupTask";
@@ -53,6 +53,7 @@ public class InsertPLUMainGroupTask extends ISynchronizerTask implements InsertT
         mSynchronizer = pSynchronizer;
         mTaskObject = new InsertTemplate<PLUMainGroup>(PLUMainGroup.class, TaskSettings.baseurl + "PluMainGroup/", pData);
         mTaskObject.registerListener(this);
+        mTaskObject.registerErrorHandler(pSynchronizer);
     }
 
     public InsertTemplate<PLUMainGroup> mTaskObject;
