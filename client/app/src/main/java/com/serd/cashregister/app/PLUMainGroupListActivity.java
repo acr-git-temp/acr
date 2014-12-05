@@ -54,7 +54,7 @@ public class PLUMainGroupListActivity extends ListActivity {
         mCursor = getApplicationContext().getContentResolver().query(PluMainGroupProvider.CONTENT_ID_URI_LOCATION, PROJECTION, mShowDeleted ? null : "DELETED <> 1", null, null);
 
         mAdapter = new  android.widget.SimpleCursorAdapter(this, R.layout.plumaingroup_list_layout, mCursor, PROJECTION,
-                new int[] {R.id.textViewName, R.id.textViewId, R.id.textViewServerTimestamp, R.id.textViewClientTimestamp, R.id.textViewId, R.id.textViewDeleted});
+                new int[] {R.id.textViewName, R.id.textViewId, R.id.textViewServerTimestamp, R.id.textViewClientTimestamp, R.id.textView_id, R.id.textViewDeleted});
         setListAdapter(mAdapter);
 
         getApplicationContext().getContentResolver().registerContentObserver(PluMainGroupProvider.CONTENT_ID_URI_LOCATION, true, mObserver);
