@@ -168,17 +168,19 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void AddTestingData(SQLiteDatabase db) {
-
+        //Pridej radky do tabulku PLUMAINGROUP
         db.execSQL("INSERT INTO " + TABLE_NAME_PLUMAINGROUP + "(ID, NAME, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
                 "VALUES ('7f8294e2-ed08-46b8-8273-fa0c06ed175d', 'Jidlo'   , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
         db.execSQL("INSERT INTO " + TABLE_NAME_PLUMAINGROUP + "(ID, NAME, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
                 "VALUES ('2d534d40-403d-4234-b92e-a11ce853426d', 'Napoje'  , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
 
+        //Pridej radky do tabulku PLUGROUP
         db.execSQL("INSERT INTO " + TABLE_NAME_PLUGROUP + "(ID, PLUMAINGROUP_ID, NAME, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
                 "VALUES ('f2112f50-3268-4fe0-afe9-407f761eea23', '2d534d40-403d-4234-b92e-a11ce853426d', 'Nealko'  , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
         db.execSQL("INSERT INTO " + TABLE_NAME_PLUGROUP + "(ID, PLUMAINGROUP_ID, NAME, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
                 "VALUES ('b51d2c0d-43fb-4efd-92cd-8a78fc2f8886', '2d534d40-403d-4234-b92e-a11ce853426d', 'Alkohol'  , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
 
+        //Pridej radky do tabulku PLU
         db.execSQL("INSERT INTO " + TABLE_NAME_PLU + "(ID, PLUGROUP_ID, EAN, NAME1, PRICE1, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
                 "VALUES ('1dc3dcaf-30bf-4384-8b66-31dce7d65ced', 'f2112f50-3268-4fe0-afe9-407f761eea23', 100, 'CocaCola', 25 , '01.01.1900 00:00', '01.01.1900 00:00', 0)");
         db.execSQL("INSERT INTO " + TABLE_NAME_PLU + "(ID, PLUGROUP_ID, EAN, NAME1, PRICE1, SERVERTIMESTAMP, CLIENTTIMESTAMP, DELETED) " +
